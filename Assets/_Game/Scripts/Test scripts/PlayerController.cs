@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     public GuidingIndicator guidingIndicator = null;
 
-    public GameObject placeForIngredient=null;
+    public GameObject placeForIngredient = null;
 
     private Vector3 moveVector = Vector3.zero;
 
@@ -32,14 +32,17 @@ public class PlayerController : MonoBehaviour
 
     // private GameController gameController = null;
 
-    private bool hasBucketOfWater = false;
+    private bool hasIngredient = false;
+
+    private GameObject heldObject = null;
 
     // private HashSet<PlantInfo.PlantType> addedPlantsSet = new HashSet<PlantInfo.PlantType>();
 
     //  private Dictionary<PlantInfo.PlantType, GameObject> addedPlantsUniqueModels = new Dictionary<PlantInfo.PlantType, GameObject>();
 
-    public bool HasBucketOfWater { get => hasBucketOfWater; set => hasBucketOfWater = value; }
+    public bool HasBucketOfWater { get => hasIngredient; set => hasIngredient = value; }
     public Animator PlayerAnimator { get => playerAnimator; set => playerAnimator = value; }
+    public GameObject HeldObject { get => heldObject; set => heldObject = value; }
 
     private void Awake()
     {
@@ -74,13 +77,13 @@ public class PlayerController : MonoBehaviour
                     playerAnimator.SetBool("isWalking", joystick.Direction.magnitude > 0);
                 } */
 
-        if ((playerAnimator.GetBool("isWalking") != (joystick.Direction.magnitude > 0)) && !hasBucketOfWater)
+        if ((playerAnimator.GetBool("isWalking") != (joystick.Direction.magnitude > 0)) && !hasIngredient)
         {
             if (playerAnimator.GetBool("isBucketWalking")) playerAnimator.SetBool("isBucketWalking", false);
             playerAnimator.SetBool("isWalking", joystick.Direction.magnitude > 0);
         }
 
-        if ((playerAnimator.GetBool("isBucketWalking") != (joystick.Direction.magnitude > 0)) && hasBucketOfWater)
+        if ((playerAnimator.GetBool("isBucketWalking") != (joystick.Direction.magnitude > 0)) && hasIngredient)
         {
             playerAnimator.SetBool("isBucketWalking", true);
             if (playerAnimator.GetBool("isWalking")) playerAnimator.SetBool("isWalking", false);
@@ -92,16 +95,41 @@ public class PlayerController : MonoBehaviour
         prevJoystickMagnitude = joystick.Direction.magnitude;
     }
 
+    public void SetHoldableObject(GameObject holdableObject)
+    {
+        if (holdableObject == null)//just remove the holdable object and return player to default
+        {
+            Destroy(heldObject);
+            TriggerIdleAnim();
+            heldObject=null;
+            return;
+        }
+
+        holdableObject.transform.position = placeForIngredient.transform.position;
+        holdableObject.transform.SetParent(placeForIngredient.transform);
+
+        TriggerHoldingAnim();
+
+        heldObject = holdableObject;
+    }
+
     public void TriggerHoldingAnim()
     {
         playerAnimator.SetBool("isBucketWalking", true);
         if (playerAnimator.GetBool("isWalking")) playerAnimator.SetBool("isWalking", false);
-        hasBucketOfWater=true;
+        hasIngredient = true;
+    }
+
+    public void TriggerIdleAnim()
+    {
+        playerAnimator.SetBool("isWalking", true);
+        if (playerAnimator.GetBool("isBucketWalking")) playerAnimator.SetBool("isBucketWalking", false);
+        hasIngredient = false;
     }
 
     public void SetBucketExistence(bool isEnabled)
     {
-        hasBucketOfWater = isEnabled;
+        hasIngredient = isEnabled;
         //bucketModel.SetActive(isEnabled);
     }
 
