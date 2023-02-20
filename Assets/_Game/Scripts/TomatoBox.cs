@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using PlayerNamespace;
 using UnityEngine;
+using HoldableNameSpace;
 
 public class TomatoBox : MonoBehaviour
 {
-    public GameObject tomatoPrefab = null;
+    public HoldableObject tomatoPrefab = null;
 
     private PlayerController playerController = null;
 
@@ -16,8 +18,8 @@ public class TomatoBox : MonoBehaviour
             playerController = other.gameObject.GetComponent<PlayerController>();
             if (playerController.HeldObject != null) return;
 
-            GameObject newTomato = Instantiate(tomatoPrefab);//place the tomato in his hands in a predetermined place
-            playerController.SetHoldableObject(newTomato);
+            GameObject newTomato = Instantiate(tomatoPrefab.gameObject);//place the tomato in his hands in a predetermined place
+            playerController.SetHoldableObject(newTomato.GetComponent<HoldableObject>());
         }
     }
 }

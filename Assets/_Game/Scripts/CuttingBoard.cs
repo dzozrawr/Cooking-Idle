@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using PlayerNamespace;
 using UnityEngine;
+using HoldableNameSpace;
 
 public class CuttingBoard : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class CuttingBoard : MonoBehaviour
 
     private PlayerController playerController = null;
 
-    private GameObject ingredient = null, choppedIngredient = null;
+    private HoldableObject ingredient = null, choppedIngredient = null;
 
     private float timeToChop = 3f;
 
@@ -27,18 +29,18 @@ public class CuttingBoard : MonoBehaviour
             //here also update the progress bar
             if (choppingTimer > timeToChop)
             {
-                choppingTimer=0f;
+                choppingTimer = 0f;
                 progressCircle.SetProgress(1f);
-                choppedIngredient = Instantiate(ingredient.GetComponent<IngredientScript>().choppedModel);
+                choppedIngredient = Instantiate(ingredient.GetComponent<IngredientScript>().choppedIngred.gameObject).GetComponent<HoldableObject>();
                 choppedIngredient.transform.position = placeForIngredient.position;
                 choppedIngredient.transform.SetParent(placeForIngredient);
 
-                Destroy(ingredient);
+                Destroy(ingredient.gameObject);
                 ingredient = null;
 
                 Invoke(nameof(HideProgressCircleAfterDelay), 0.25f);
 
-                
+
             }
         }
     }
@@ -50,21 +52,16 @@ public class CuttingBoard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (ingredient != null) return;
+        if (ingredient != null) return; //ingredient is in the process of cutting, return
         if (other.gameObject.tag.Equals("Player"))
         {//if player collides
             playerController = other.gameObject.GetComponent<PlayerController>();
-            Transform ingredientTransform=null;
-            if(playerController.placeForIngredient.transform.childCount==0) ingredientTransform=null; else{
-                ingredientTransform = playerController.placeForIngredient.transform.GetChild(0);
-            }
-            
-            if (choppedIngredient == null)
-            {                
-                if ((ingredientTransform!=null)&&(ingredientTransform != null))    //player is holding something
+            if (choppedIngredient == null)  //if the board is empty
+            {
+                if (playerController.PlayerState==PlayerStates.Holding)    //player is holding something so leave the held object on the board
                 {
-                    if(ingredientTransform.GetComponent<IngredientScript>()==null) return;  //the player is not holding a fresh ingredient, return
-                    ingredient = playerController.placeForIngredient.transform.GetChild(0).gameObject;
+                    if (playerController.HeldObject.type!=HoldableType.FreshIngred) return;  //the player is not holding a fresh ingredient, return
+                    ingredient=playerController.HeldObject;
 
                     //place the ingredient that player is holding on the board
                     ingredient.transform.position = placeForIngredient.position;
@@ -72,26 +69,16 @@ public class CuttingBoard : MonoBehaviour
                     ingredient.transform.rotation = Quaternion.identity;
 
 
-                    playerController.TriggerIdleAnim(); //trigger players idle animation
-
-                    playerController.HeldObject=null;
+                    playerController.SetHoldableObject(null);
                 }
             }
-            else
+            else //if the board holds a chopped ingredient    //here we pick up the chopped ingredient if possible
             {
-                if((ingredientTransform!=null)&&(ingredientTransform.GetComponent<IngredientScript>()!=null)) return;  //the player is holding a chopped ingredient already, return
-                choppedIngredient.transform.position = playerController.placeForIngredient.transform.position;
-                choppedIngredient.transform.SetParent(playerController.placeForIngredient.transform);
-                choppedIngredient.transform.rotation = Quaternion.identity;
+                if (playerController.PlayerState==PlayerStates.Holding) return; 
 
-                playerController.TriggerHoldingAnim();
+                playerController.SetHoldableObject(choppedIngredient);
 
-                playerController.HeldObject=choppedIngredient;
-
-                choppedIngredient=null;
-
-               // GameObject newTomato = Instantiate(tomatoPrefab, playerController.placeForIngredient.transform.position, Quaternion.identity);//place the tomato in his hands in a predetermined place
-              //  newTomato.transform.SetParent(playerController.placeForIngredient.transform);
+                choppedIngredient = null;
             }
         }
     }

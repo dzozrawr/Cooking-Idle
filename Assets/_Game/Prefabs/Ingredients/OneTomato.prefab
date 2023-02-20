@@ -94,4 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d309bb7ecca65414bacece8bdddcc8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choppedModel: {fileID: 1795650209215451833, guid: e044091ad024f5e4ba6dc2f70606b0b1, type: 3}
+  type: 0
+  choppedIngred: {fileID: 7085214265088058027, guid: e044091ad024f5e4ba6dc2f70606b0b1, type: 3}

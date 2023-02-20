@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerNamespace;
 
 public class RecycleBin : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class RecycleBin : MonoBehaviour
             playerController = other.gameObject.GetComponent<PlayerController>();
             if (playerController.HeldObject == null) return;
 
-            playerController.SetHoldableObject(null);
+            playerController.SetHoldableObject(null, true);
         }
     }
 }

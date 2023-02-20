@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HoldableNameSpace;
 
-public class IngredientScript : MonoBehaviour
+public class IngredientScript : HoldableObject
 {
-    public GameObject choppedModel=null;
+    public HoldableObject choppedIngred=null;
 }
