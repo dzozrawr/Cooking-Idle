@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7443754502219089907}
   - component: {fileID: 215768653495383849}
   - component: {fileID: 7875639080543034044}
-  - component: {fileID: 8200224170347431199}
+  - component: {fileID: 6429928166926165446}
   m_Layer: 0
   m_Name: ProgressUI
   m_TagString: Untagged
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8200224170347431199
+--- !u!114 &6429928166926165446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
