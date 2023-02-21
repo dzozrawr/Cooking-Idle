@@ -95,4 +95,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  choppedIngred: {fileID: 7085214265088058027, guid: e044091ad024f5e4ba6dc2f70606b0b1, type: 3}
+  choppedIngred: {fileID: 2767834467005416430, guid: e044091ad024f5e4ba6dc2f70606b0b1, type: 3}

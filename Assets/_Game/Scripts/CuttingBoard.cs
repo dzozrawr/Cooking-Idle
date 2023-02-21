@@ -31,7 +31,7 @@ public class CuttingBoard : MonoBehaviour
             {
                 choppingTimer = 0f;
                 progressCircle.SetProgress(1f);
-                choppedIngredient = Instantiate(ingredient.GetComponent<IngredientScript>().choppedIngred.gameObject).GetComponent<HoldableObject>();
+                choppedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().choppedIngred.gameObject).GetComponent<HoldableObject>();
                 choppedIngredient.transform.position = placeForIngredient.position;
                 choppedIngredient.transform.SetParent(placeForIngredient);
 
