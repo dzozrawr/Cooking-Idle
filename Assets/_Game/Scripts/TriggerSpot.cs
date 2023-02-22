@@ -66,9 +66,9 @@ public class TriggerSpot : MonoBehaviour
         objectToUnlock.transform.localScale=Vector3.zero;
         objectToUnlock.SetActive(true);
 
-        tweenSequence.Append(transform.DOScale(Vector3.zero,0.5f));
-        tweenSequence.AppendInterval(0.33f);
-        tweenSequence.Append(objectToUnlock.transform.DOScale(objectToUnlockDefaultScale,0.5f));
+        tweenSequence.Append(transform.DOScale(Vector3.zero,0.25f));
+        tweenSequence.AppendInterval(0.05f);
+        tweenSequence.Append(objectToUnlock.transform.DOScale(objectToUnlockDefaultScale,0.25f));
 
         tweenSequence.AppendCallback(()=>{
             Destroy(gameObject);
@@ -78,11 +78,9 @@ public class TriggerSpot : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (moneyInt <= 0) return;
-        Debug.Log("Ontriggerenter");
+        if (moneyInt <= 0) return;        
         if (other.gameObject == playerController.gameObject)
         {
-            Debug.Log("Ontriggerenter PLAYER");
             if (GameController.CoinAmount >= moneyInt)
             {
                 isBuying = true;

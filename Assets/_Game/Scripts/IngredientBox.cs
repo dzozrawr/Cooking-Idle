@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using PlayerNamespace;
 using UnityEngine;
 using HoldableNameSpace;
+using DG.Tweening;
 
 public class IngredientBox : MonoBehaviour
 {
     public HoldableObject tomatoPrefab = null;
+    public GameObject boxModel=null;
 
     private PlayerController playerController = null;
 
@@ -20,6 +22,8 @@ public class IngredientBox : MonoBehaviour
 
             GameObject newTomato = Instantiate(tomatoPrefab.gameObject);//place the tomato in his hands in a predetermined place
             playerController.SetHoldableObject(newTomato.GetComponent<HoldableObject>());
+
+            boxModel.transform.DOPunchScale(boxModel.transform.localScale*0.2f,0.2f,10,0.5f);
         }
     }
 }

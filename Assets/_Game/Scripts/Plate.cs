@@ -15,6 +15,8 @@ public class Plate : HoldableObject
     private List<PreparedIngredient> ingredients=new List<PreparedIngredient>();
     private int ingrPlaceInd = 0;
 
+    private GameObject newPlate=null;
+
     public List<PreparedIngredient> Ingredients { get => ingredients; set => ingredients = value; }
 
     private void OnTriggerEnter(Collider other)
@@ -44,7 +46,6 @@ public class Plate : HoldableObject
                     Instantiate(plateScriptableObject.platePrefab, transform.position,Quaternion.identity).transform.SetParent(transform.parent); 
                     playerController.SetHoldableObject(this);
 
-                    Invoke(nameof(RotateAfterDelay),0.1f);
                     transform.localPosition=transformValuesWhenHeld.localPosition;
                     transform.localRotation=transformValuesWhenHeld.localRotation;
 
@@ -54,6 +55,7 @@ public class Plate : HoldableObject
             }
         }
     }
+    
 
     private void RotateAfterDelay(){
         //transform.Tra
