@@ -4,7 +4,7 @@ using PlayerNamespace;
 using UnityEngine;
 using HoldableNameSpace;
 
-public class TomatoBox : MonoBehaviour
+public class IngredientBox : MonoBehaviour
 {
     public HoldableObject tomatoPrefab = null;
 
