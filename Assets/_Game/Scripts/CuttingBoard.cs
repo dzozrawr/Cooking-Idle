@@ -10,6 +10,8 @@ public class CuttingBoard : MonoBehaviour
 
     public ProgressCircle progressCircle = null;
 
+    public KnifeChopper knifeChopper=null;
+
     private PlayerController playerController = null;
 
     private HoldableObject ingredient = null, choppedIngredient = null;
@@ -22,7 +24,10 @@ public class CuttingBoard : MonoBehaviour
     {
         if (ingredient != null)
         {
-            if (choppingTimer == 0f) progressCircle.ShowCircle(true);
+            if (choppingTimer == 0f){
+                progressCircle.ShowCircle(true);
+                knifeChopper.ToggleChoppingPlay(true);
+            } 
             choppingTimer += Time.deltaTime;
 
             progressCircle.SetProgress(choppingTimer / timeToChop);
@@ -40,7 +45,7 @@ public class CuttingBoard : MonoBehaviour
 
                 Invoke(nameof(HideProgressCircleAfterDelay), 0.25f);
 
-
+                knifeChopper.ToggleChoppingPlay(false);
             }
         }
     }

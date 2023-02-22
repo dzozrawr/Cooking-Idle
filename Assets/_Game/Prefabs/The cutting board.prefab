@@ -32,6 +32,7 @@ Transform:
   - {fileID: 3273458489202516797}
   - {fileID: 4850866442173834284}
   - {fileID: 8443434752337187508}
+  - {fileID: 507656508484358832}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeForIngredient: {fileID: 4850866442173834284}
   progressCircle: {fileID: 4391030138460786736}
+  knifeChopper: {fileID: 3221601041395025556}
 --- !u!65 &2141023897951774017
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -215,6 +217,83 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58eb0b6ee80eb0b43ad1153e5ef03770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5405763880412132166
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2141023897951774022}
+    m_Modifications:
+    - target: {fileID: 2169580425730746106, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480510744065352183, guid: 88058774e6466954094aefbbe946970d, type: 3}
+      propertyPath: m_Name
+      value: Knife_thats_chopping
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88058774e6466954094aefbbe946970d, type: 3}
+--- !u!4 &507656508484358832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5480510744065352182, guid: 88058774e6466954094aefbbe946970d, type: 3}
+  m_PrefabInstance: {fileID: 5405763880412132166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3221601041395025556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7471555961689945554, guid: 88058774e6466954094aefbbe946970d, type: 3}
+  m_PrefabInstance: {fileID: 5405763880412132166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812df7ade5127744ab36562779bf9440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8261750512215553375
