@@ -58,13 +58,13 @@ public class FinishSpot : MonoBehaviour
             //   c.transform.position = transform.position;
             // c.GetComponent<CoinUIEarnScript>().PlayCoinEarnAnimation(5);
             coinUIEarnScript.PlayCoinEarnAnimation(5);
-            Debug.Log("Plate matches the order!");
+          //  Debug.Log("Plate matches the order!");
         }
         else
         {
             coinUIEarnScript.PlayError();
             //play the error tween
-            Debug.Log("Plate does NOT match the order!");
+          //  Debug.Log("Plate does NOT match the order!");
         }
         Destroy(plate.gameObject);
         plate = null;

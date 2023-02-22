@@ -134,6 +134,7 @@ public class CoinUIEarnScript : MonoBehaviour
             // GameController.Instance.AddMoneyIncrementally(coinAmount);
             //Destroy(gameObject);
             canvas.enabled = false;
+            GameController.Instance.AddMoney(coinAmount);
             //tweener.RemoveDelegateOnComplete()
         });
         coinTweener.PlayTween();

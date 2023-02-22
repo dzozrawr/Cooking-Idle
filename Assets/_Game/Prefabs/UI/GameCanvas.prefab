@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2753475914914107230}
   - component: {fileID: 2753475914914107231}
   - component: {fileID: 2753475914914107228}
+  - component: {fileID: 6675175357321569474}
   m_Layer: 5
   m_Name: GameCanvas
   m_TagString: Untagged
@@ -29,7 +30,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 1315518463164564612}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,3 +101,129 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6675175357321569474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753475914914107229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e98ebd7b0c1b498de21763aa6dd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinAmountTxt: {fileID: 1407965676069055306}
+--- !u!1001 &8047416124364369534
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2753475914914107225}
+    m_Modifications:
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 260.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 85.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -176
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -67
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074616091385883389, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+      propertyPath: m_Name
+      value: CoinAmountUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+--- !u!224 &1315518463164564612 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9074616091385883386, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+  m_PrefabInstance: {fileID: 8047416124364369534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1407965676069055306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8945330840971560244, guid: 22cd8ce54074579478f459a64d9894d4, type: 3}
+  m_PrefabInstance: {fileID: 8047416124364369534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
