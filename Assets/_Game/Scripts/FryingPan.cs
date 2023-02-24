@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using PlayerNamespace;
 using UnityEngine;
+using PlayerNamespace;
 using HoldableNameSpace;
 
-public class CuttingBoard : MonoBehaviour
+public class FryingPan : MonoBehaviour
 {
-    public Transform placeForIngredient = null;
+  public Transform placeForIngredient = null;
 
     public ProgressCircle progressCircle = null;
 
-    public KnifeChopper knifeChopper=null;
 
     private PlayerController playerController = null;
 
@@ -26,7 +25,7 @@ public class CuttingBoard : MonoBehaviour
         {
             if (choppingTimer == 0f){
                 progressCircle.ShowCircle(true);
-                knifeChopper.ToggleChoppingPlay(true);
+             //   knifeChopper.ToggleChoppingPlay(true);
             } 
             choppingTimer += Time.deltaTime;
 
@@ -45,7 +44,7 @@ public class CuttingBoard : MonoBehaviour
 
                 Invoke(nameof(HideProgressCircleAfterDelay), 0.25f);
 
-                knifeChopper.ToggleChoppingPlay(false);
+             //   knifeChopper.ToggleChoppingPlay(false);
             }
         }
     }
@@ -65,7 +64,7 @@ public class CuttingBoard : MonoBehaviour
             {
                 if (playerController.PlayerState==PlayerStates.Holding)    //player is holding something so leave the held object on the board
                 {
-                    if (!(playerController.HeldObject is ChoppableIngredient)) return;  //the player is not holding a fresh ingredient, return
+                    if (!(playerController.HeldObject is PanFryableIngredient)) return;  //the player is not holding a fresh ingredient, return
                     ingredient=playerController.HeldObject;
 
                     //place the ingredient that player is holding on the board
@@ -87,4 +86,5 @@ public class CuttingBoard : MonoBehaviour
             }
         }
     }
+
 }

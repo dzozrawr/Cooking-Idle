@@ -5,5 +5,5 @@ using HoldableNameSpace;
 
 public class FreshIngredient : HoldableObject
 {
-    public HoldableObject choppedIngred=null;
+    public HoldableObject preparedIngred=null;
 }

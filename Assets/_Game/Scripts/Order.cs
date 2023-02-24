@@ -7,6 +7,7 @@ using UnityEngine;
 [Serializable]
 public class Order 
 {
+    public Sprite orderSprite=null;
     public List<IngredientType> ingredientList = null;
 
     public bool DoesPlateMatchesTheOrder(Plate plate)
