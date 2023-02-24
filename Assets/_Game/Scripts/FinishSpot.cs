@@ -9,6 +9,8 @@ public class FinishSpot : MonoBehaviour
 {
     public CoinUIEarnScript coinUIEarnScript = null;
 
+    public CustomerManager customerManager=null;
+
     private PlayerController playerController = null;
     private Plate plate = null;
     private Order order = null;
@@ -58,6 +60,7 @@ public class FinishSpot : MonoBehaviour
             //   c.transform.position = transform.position;
             // c.GetComponent<CoinUIEarnScript>().PlayCoinEarnAnimation(5);
             coinUIEarnScript.PlayCoinEarnAnimation(5);
+            customerManager.OrderDone();
           //  Debug.Log("Plate matches the order!");
         }
         else
