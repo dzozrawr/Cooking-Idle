@@ -42,7 +42,7 @@ public class FinishSpot : MonoBehaviour
 
                     playerController.SetHoldableObject(null);
 
-                    Invoke(nameof(PlateMatchAfterDelay), 1.5f);
+                    Invoke(nameof(PlateMatchAfterDelay), 0.85f);
                 }
             }
         }
@@ -60,12 +60,15 @@ public class FinishSpot : MonoBehaviour
             //   c.transform.position = transform.position;
             // c.GetComponent<CoinUIEarnScript>().PlayCoinEarnAnimation(5);
             coinUIEarnScript.PlayCoinEarnAnimation(5);
+            customerManager.FirstCustomer.PlayPosOrNegParticle(true);
             customerManager.OrderDone();
+            
           //  Debug.Log("Plate matches the order!");
         }
         else
         {
             coinUIEarnScript.PlayError();
+            customerManager.FirstCustomer.PlayPosOrNegParticle(false);
             //play the error tween
           //  Debug.Log("Plate does NOT match the order!");
         }

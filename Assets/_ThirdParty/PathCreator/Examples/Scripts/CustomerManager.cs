@@ -17,6 +17,9 @@ public class CustomerManager : MonoBehaviour
     private Customer firstCustomer = null;
 
     private int maxCustomerN = 5;
+
+    public Customer FirstCustomer { get => firstCustomer; set => firstCustomer = value; }
+
     // Start is called before the first frame update
     void Start()
     {

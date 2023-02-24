@@ -13,6 +13,9 @@ public class Customer : MonoBehaviour
 
     public Animator animator = null;
 
+    public ParticleSystem positiveParticle=null;
+    public ParticleSystem negativeParticle=null;
+
     private Transform targetToMoveTowards = null;
 
     private Vector3 moveVector;
@@ -141,5 +144,13 @@ public class Customer : MonoBehaviour
 
         renderer.material.color = new Color(c.r, c.g, c.b, 1f);
         renderer.material = opaqueMat;
+    }
+
+    public void PlayPosOrNegParticle(bool isPositive){
+        if(isPositive){
+            positiveParticle.Play();
+        }else{
+            negativeParticle.Play();
+        }
     }
 }
