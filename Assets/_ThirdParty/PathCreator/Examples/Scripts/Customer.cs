@@ -27,7 +27,9 @@ public class Customer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //FadeOut(2f);
+
+        animator.SetFloat("IdleOffset",Random.Range(0f,1f));
+        //Breathing Idle
     }
 
     private void Update()
@@ -40,7 +42,8 @@ public class Customer : MonoBehaviour
             {
                 targetToMoveTowards = null;
                 customerManager.ReachedTarget(this);
-                animator.SetTrigger("Idle");
+                TriggerIdleWRandomOffset();
+
                 // transform.position = targetPos;
                 return;
             }
@@ -50,6 +53,13 @@ public class Customer : MonoBehaviour
             //   Vector3 moveVector=
             //transform.position
         }
+    }
+
+    private void TriggerIdleWRandomOffset()
+    {
+        animator.SetTrigger("Idle");
+        //float randomIdleStart = Random.Range(0, animator.GetCurrentAnimatorStateInfo(0).length);
+       // animator.Play("BreathingIdle",0,randomIdleStart);
     }
 
     public void Move(Transform target, CustomerManager manager)
@@ -64,8 +74,10 @@ public class Customer : MonoBehaviour
             moveVector = target.position - transform.position;
             transform.LookAt(target);
             animator.SetTrigger("Walk");
-        }else{
-            animator.SetTrigger("Idle");
+        }
+        else
+        {
+            TriggerIdleWRandomOffset();
         }
     }
 
