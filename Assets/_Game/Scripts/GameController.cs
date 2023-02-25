@@ -15,8 +15,13 @@ public class GameController : MonoBehaviour
 
     public PlayerController playerController=null;
 
+    public IngredientSpriteHolder ingredientSpriteHolder = null;
+
     private static int coinAmount;
+
+    private GameCanvas gameCanvas = null;
     public static int CoinAmount { get => coinAmount; set => coinAmount = value; }
+    public GameCanvas GameCanvas { get => gameCanvas; set => gameCanvas = value; }
 
     private void Awake()
     {
@@ -45,6 +50,7 @@ public class GameController : MonoBehaviour
             if (orders[i].DoesPlateMatchesTheOrder(plate))
             {
                 orders.RemoveAt(i);
+                gameCanvas.orderUI.SetOrderUIBasedOnOrder(orders[i]);
                 return true;
             }
         }
