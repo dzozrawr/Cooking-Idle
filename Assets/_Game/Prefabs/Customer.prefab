@@ -121,6 +121,10 @@ PrefabInstance:
       value: HeartEyesParticle
       objectReference: {fileID: 0}
     - target: {fileID: 2902548765214523558, guid: 76e9d746e3e537b4c980e86a1411f448, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902548765214523558, guid: 76e9d746e3e537b4c980e86a1411f448, type: 3}
       propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
@@ -202,6 +206,10 @@ PrefabInstance:
     - target: {fileID: 2902548765214523555, guid: f28ca83ca2136ac4baa5d61f676020b1, type: 3}
       propertyPath: m_Name
       value: CryingParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902548765214523558, guid: f28ca83ca2136ac4baa5d61f676020b1, type: 3}
+      propertyPath: stopAction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2902548765214523558, guid: f28ca83ca2136ac4baa5d61f676020b1, type: 3}
       propertyPath: moveWithTransform

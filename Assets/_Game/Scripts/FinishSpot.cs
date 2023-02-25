@@ -34,7 +34,8 @@ public class FinishSpot : MonoBehaviour
                 {
                     plate = (Plate)playerController.HeldObject;
 
-                    doesPlateMatchOrder = gameController.DoesPlateMatchAnyOrder(plate);
+                    //  doesPlateMatchOrder = gameController.DoesPlateMatchAnyOrder(plate);
+                    doesPlateMatchOrder = gameController.DoesPlateMatchOrder(plate);
 
                     plate.transform.position = transform.position;
                     plate.transform.SetParent(null);
@@ -62,8 +63,9 @@ public class FinishSpot : MonoBehaviour
             coinUIEarnScript.PlayCoinEarnAnimation(5);
             customerManager.FirstCustomer.PlayPosOrNegParticle(true);
             customerManager.OrderDone();
-            
-          //  Debug.Log("Plate matches the order!");
+            gameController.GameCanvas.ChangeToNextOrder();
+            //gameController.GameCanvas.orderUI.SetOrderUIBasedOnOrder(gameController.orders[0]);
+            //  Debug.Log("Plate matches the order!");
         }
         else
         {

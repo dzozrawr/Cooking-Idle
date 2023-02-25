@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
 
     public List<Order> orders = null;
 
-    public PlayerController playerController=null;
+    public PlayerController playerController = null;
 
     public IngredientSpriteHolder ingredientSpriteHolder = null;
 
@@ -42,7 +42,21 @@ public class GameController : MonoBehaviour
         }
     }
 #endif
-
+    public bool DoesPlateMatchOrder(Plate plate) //maybe this could return the order index so we can remove it
+    {
+        if (orders[0].DoesPlateMatchesTheOrder(plate))
+        {
+            orders.RemoveAt(0);
+            if (orders.Count == 0)
+            {
+                Debug.Log("Level over");
+                return true;
+            }
+          //  gameCanvas.orderUI.SetOrderUIBasedOnOrder(orders[0]);            
+            return true;
+        }
+        return false;
+    }
     public bool DoesPlateMatchAnyOrder(Plate plate) //maybe this could return the order index so we can remove it
     {
         for (int i = 0; i < orders.Count; i++)
