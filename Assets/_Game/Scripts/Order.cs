@@ -8,6 +8,7 @@ using UnityEngine;
 public class Order 
 {
     public Sprite orderSprite=null;
+    public string foodName = null;
     public List<IngredientType> ingredientList = null;
 
     public bool DoesPlateMatchesTheOrder(Plate plate)

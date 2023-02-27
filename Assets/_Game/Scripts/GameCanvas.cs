@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ingredients;
 using DG.Tweening;
+using TMPro;
 
 public class GameCanvas : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameCanvas : MonoBehaviour
     {
         public GameObject orderParent = null;
         public Image foodImg;
+        public TMP_Text foodNameText = null;
         public IngredientUI[] ingredientsUI;
         //   public Image[] ingredientsImg = new Image[3];
         //private Ingredients.IngredientType[] ingredientsTypes = new IngredientType[3];
@@ -24,6 +26,7 @@ public class GameCanvas : MonoBehaviour
         {
             IngredientSpriteHolder ingredientSpriteHolder = GameController.Instance.ingredientSpriteHolder;
             foodImg.sprite = order.orderSprite;
+            foodNameText.text = order.foodName;
 
             for (int i = 0; i < ingredientsUI.Length; i++)
             {
