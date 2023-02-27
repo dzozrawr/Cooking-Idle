@@ -18,7 +18,7 @@ public class IngredientSpriteHolder : MonoBehaviour
 
     public Dictionary<IngredientType, Sprite> IngrSprites { get => ingrSprites; set => ingrSprites = value; }
 
-    private void Start()
+    private void Awake()
     {
         foreach (IngrTypeSprite item in ingrTypeSpriteList)
         {

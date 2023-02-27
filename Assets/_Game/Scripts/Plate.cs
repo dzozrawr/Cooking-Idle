@@ -5,9 +5,17 @@ using UnityEngine;
 using HoldableNameSpace;
 using Ingredients;
 using DG.Tweening;
+using System;
 
 public class Plate : HoldableObject
 {
+    [Serializable]
+    public class PlateFood
+    {
+        public List<IngredientType> ingredients;
+        public GameObject foodPrefab;
+    }
+
     public List<Transform> placesForIngredients = null;
     public Transform transformValuesWhenHeld = null;
     public PlateScriptableObject plateScriptableObject = null;

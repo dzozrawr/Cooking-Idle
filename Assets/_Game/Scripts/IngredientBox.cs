@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class IngredientBox : MonoBehaviour
 {
-    public HoldableObject tomatoPrefab = null;
+    public HoldableObject ingredientPrefab = null;
     public GameObject boxModel=null;
 
     private PlayerController playerController = null;
@@ -20,7 +20,7 @@ public class IngredientBox : MonoBehaviour
             playerController = other.gameObject.GetComponent<PlayerController>();
             if (playerController.HeldObject != null) return;
 
-            GameObject newTomato = Instantiate(tomatoPrefab.gameObject);//place the tomato in his hands in a predetermined place
+            GameObject newTomato = Instantiate(ingredientPrefab.gameObject);//place the tomato in his hands in a predetermined place
             playerController.SetHoldableObject(newTomato.GetComponent<HoldableObject>());
 
             boxModel.transform.DOPunchScale(boxModel.transform.localScale*0.2f,0.2f,10,0.5f);
