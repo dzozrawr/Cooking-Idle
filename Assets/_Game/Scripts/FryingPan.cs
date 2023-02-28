@@ -10,6 +10,8 @@ public class FryingPan : MonoBehaviour
 
     public ProgressCircle progressCircle = null;
 
+    public ParticleSystem cookingParticles=null;
+
 
     private PlayerController playerController = null;
 
@@ -27,6 +29,7 @@ public class FryingPan : MonoBehaviour
         {
             if (choppingTimer == 0f) {
                 progressCircle.ShowCircle(true);
+                cookingParticles.Play();
                 //   knifeChopper.ToggleChoppingPlay(true);
             }
             choppingTimer += Time.deltaTime;
@@ -52,10 +55,6 @@ public class FryingPan : MonoBehaviour
         }
     }
 
-    private void CookingEffect(float progress)
-    {
-
-    }
 
     public void HideProgressCircleAfterDelay()
     {
@@ -90,7 +89,8 @@ public class FryingPan : MonoBehaviour
                 if (playerController.PlayerState==PlayerStates.Holding) return; 
 
                 playerController.SetHoldableObject(cookedIngredient);
-
+                
+                cookingParticles.Stop();
                 cookedIngredient = null;
             }
         }
