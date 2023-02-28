@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4112434049762350288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7243817142852901330}
+  m_Layer: 0
+  m_Name: ModelParentPivotFixer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7243817142852901330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4112434049762350288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0281, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8643590901118657553}
+  m_Father: {fileID: 8106071812392070415}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5397324843162788487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6078412550300710603}
+  m_Layer: 0
+  m_Name: HighPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6078412550300710603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397324843162788487}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.733, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8106071812392070415}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8106071812392070414
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +89,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8643590901118657553}
+  - {fileID: 7243817142852901330}
+  - {fileID: 6078412550300710603}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,12 +110,14 @@ MonoBehaviour:
   preparedIngred: {fileID: -2068808218423880069, guid: c3154d3bc30f6be4698a197e023e3521, type: 3}
   renderer: {fileID: 7475721378426396542}
   cookedColor: {r: 0.36862746, g: 0, b: 0, a: 1}
+  pattyHighPos: {fileID: 6078412550300710603}
+  ingredientParentTransform: {fileID: 7243817142852901330}
 --- !u!1001 &8106071812070474746
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8106071812392070415}
+    m_TransformParent: {fileID: 7243817142852901330}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 92680b794337db845b868f78cc960077, type: 3}
       propertyPath: m_RootOrder
@@ -77,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92680b794337db845b868f78cc960077, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0424
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92680b794337db845b868f78cc960077, type: 3}
       propertyPath: m_LocalPosition.z
