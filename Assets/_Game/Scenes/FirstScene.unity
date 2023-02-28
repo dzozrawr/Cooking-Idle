@@ -3141,10 +3141,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0092d6ccd49625649b51af5dfc027cf8, type: 2}
+    - target: {fileID: -2543443902716416610, guid: d734d51c8aa7796458dba3d789becbff, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16a6eef13f88ac7489c8c51e7521c879, type: 2}
     - target: {fileID: 919132149155446097, guid: d734d51c8aa7796458dba3d789becbff, type: 3}
       propertyPath: m_Name
       value: Prop_StorageCabinet_02_Fixed_UVs
       objectReference: {fileID: 0}
+    - target: {fileID: 2921453738809401735, guid: d734d51c8aa7796458dba3d789becbff, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16a6eef13f88ac7489c8c51e7521c879, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d734d51c8aa7796458dba3d789becbff, type: 3}
 --- !u!4 &1504740649 stripped
