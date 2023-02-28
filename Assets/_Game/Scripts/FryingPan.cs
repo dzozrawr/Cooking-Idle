@@ -6,14 +6,16 @@ using HoldableNameSpace;
 
 public class FryingPan : MonoBehaviour
 {
-  public Transform placeForIngredient = null;
+    public Transform placeForIngredient = null;
 
     public ProgressCircle progressCircle = null;
 
 
     private PlayerController playerController = null;
 
-    private HoldableObject ingredient = null, choppedIngredient = null;
+    private HoldableObject ingredient = null, cookedIngredient = null;
+
+    private PanFryableIngredient panFryableIngredient = null;
 
     private float timeToChop = 3f;
 
@@ -23,30 +25,36 @@ public class FryingPan : MonoBehaviour
     {
         if (ingredient != null)
         {
-            if (choppingTimer == 0f){
+            if (choppingTimer == 0f) {
                 progressCircle.ShowCircle(true);
-             //   knifeChopper.ToggleChoppingPlay(true);
-            } 
+                //   knifeChopper.ToggleChoppingPlay(true);
+            }
             choppingTimer += Time.deltaTime;
 
             progressCircle.SetProgress(choppingTimer / timeToChop);
+            panFryableIngredient.CookingEffect(choppingTimer / timeToChop);
             //here also update the progress bar
             if (choppingTimer > timeToChop)
             {
                 choppingTimer = 0f;
                 progressCircle.SetProgress(1f);
-                choppedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
-                choppedIngredient.transform.position = placeForIngredient.position;
-                choppedIngredient.transform.SetParent(placeForIngredient);
+                cookedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
+                cookedIngredient.transform.position = placeForIngredient.position;
+                cookedIngredient.transform.SetParent(placeForIngredient);
 
                 Destroy(ingredient.gameObject);
                 ingredient = null;
 
                 Invoke(nameof(HideProgressCircleAfterDelay), 0.25f);
 
-             //   knifeChopper.ToggleChoppingPlay(false);
+                //   knifeChopper.ToggleChoppingPlay(false);
             }
         }
+    }
+
+    private void CookingEffect(float progress)
+    {
+
     }
 
     public void HideProgressCircleAfterDelay()
@@ -60,12 +68,13 @@ public class FryingPan : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {//if player collides
             playerController = other.gameObject.GetComponent<PlayerController>();
-            if (choppedIngredient == null)  //if the board is empty
+            if (cookedIngredient == null)  //if the board is empty
             {
                 if (playerController.PlayerState==PlayerStates.Holding)    //player is holding something so leave the held object on the board
                 {
                     if (!(playerController.HeldObject is PanFryableIngredient)) return;  //the player is not holding a fresh ingredient, return
                     ingredient=playerController.HeldObject;
+                    panFryableIngredient = (PanFryableIngredient)ingredient;
 
                     //place the ingredient that player is holding on the board
                     ingredient.transform.position = placeForIngredient.position;
@@ -80,9 +89,9 @@ public class FryingPan : MonoBehaviour
             {
                 if (playerController.PlayerState==PlayerStates.Holding) return; 
 
-                playerController.SetHoldableObject(choppedIngredient);
+                playerController.SetHoldableObject(cookedIngredient);
 
-                choppedIngredient = null;
+                cookedIngredient = null;
             }
         }
     }
