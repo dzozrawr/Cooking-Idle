@@ -7,7 +7,7 @@ namespace Ingredients
 {
     public enum IngredientType
     {
-        Tomato, Lettuce, Patty, BurgerBun
+        Tomato, Lettuce, Patty, BurgerBun, Rice, Broccoli
     }
     public class PreparedIngredient : HoldableObject
     {
