@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1795650209215451832}
-  - component: {fileID: 5237575400510537677}
+  - component: {fileID: 4906602053994560998}
   m_Layer: 0
-  m_Name: ChoppedCarrot
+  m_Name: BoiledChoppedCarrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5237575400510537677
+--- !u!114 &4906602053994560998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795650209215451833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f9696c8da99a1244883264351e21e2f, type: 3}
+  m_Script: {fileID: 11500000, guid: fde8f1435fa624342bdc94510d8d0162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  preparedIngred: {fileID: 4906602053994560998, guid: 775f4b59d292bb64e88a4c2ff97afa50, type: 3}
+  type: 1
+  ingrType: 9
 --- !u!1001 &7659989865037109726
 PrefabInstance:
   m_ObjectHideFlags: 0

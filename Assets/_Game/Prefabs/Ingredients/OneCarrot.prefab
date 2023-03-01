@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  preparedIngred: {fileID: 2767834467005416430, guid: 51cfcde108737eb4b803b1db353a5bc7, type: 3}
+  preparedIngred: {fileID: 5237575400510537677, guid: 26c10b1fd9af23d43b59e871bc208b6f, type: 3}
 --- !u!1001 &607498543422387084
 PrefabInstance:
   m_ObjectHideFlags: 0

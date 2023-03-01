@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7286967940614872804}
   m_Layer: 0
-  m_Name: Meat Bone and Veggies
+  m_Name: MeatBone Carrot Tomato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 307210251893527653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.5531657, y: 0, z: 0.5180421}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5699, y: 1.5699, z: 1.5699}
   m_Children:
   - {fileID: 2872937042830226559}
   - {fileID: 2284519080264895262}
