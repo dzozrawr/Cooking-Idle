@@ -26,6 +26,7 @@ public class PanFryableIngredient : FreshIngredient
         startColor = mat.color;
 
        // ingredientParentTransform = renderer.transform;
+        if(ingredientParentTransform!=null)
         ingredientDefaultPos = ingredientParentTransform.localPosition;
 
         InitTween();

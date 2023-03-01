@@ -10,7 +10,7 @@ public class FryingPan : MonoBehaviour
 
     public ProgressCircle progressCircle = null;
 
-    public ParticleSystem cookingParticles=null;
+    public ParticleSystem cookingParticles = null;
 
 
     private PlayerController playerController = null;
@@ -27,7 +27,8 @@ public class FryingPan : MonoBehaviour
     {
         if (ingredient != null)
         {
-            if (choppingTimer == 0f) {
+            if (choppingTimer == 0f)
+            {
                 progressCircle.ShowCircle(true);
                 cookingParticles.Play();
                 //   knifeChopper.ToggleChoppingPlay(true);
@@ -69,10 +70,21 @@ public class FryingPan : MonoBehaviour
             playerController = other.gameObject.GetComponent<PlayerController>();
             if (cookedIngredient == null)  //if the board is empty
             {
-                if (playerController.PlayerState==PlayerStates.Holding)    //player is holding something so leave the held object on the board
+                if (playerController.PlayerState == PlayerStates.Holding)    //player is holding something so leave the held object on the board
                 {
-                    if (!(playerController.HeldObject is PanFryableIngredient)) return;  //the player is not holding a fresh ingredient, return
-                    ingredient=playerController.HeldObject;
+                    if ((!(playerController.HeldObject is PanFryableIngredient)) && (!(playerController.HeldObject is Egg))) return;  //the player is not holding a fresh ingredient, return
+
+                    ingredient = playerController.HeldObject;
+
+                    if (ingredient is Egg)
+                    {
+                        Egg egg = (Egg)ingredient;
+                        GameObject sunnyEggGO = Instantiate(egg.sunnyEgg.gameObject);
+                        ingredient = sunnyEggGO.GetComponent<PanFryableIngredient>();
+
+                        playerController.SetHoldableObject(null, true);
+                    }
+
                     panFryableIngredient = (PanFryableIngredient)ingredient;
 
                     //place the ingredient that player is holding on the board
@@ -80,16 +92,17 @@ public class FryingPan : MonoBehaviour
                     ingredient.transform.SetParent(placeForIngredient);
                     ingredient.transform.rotation = Quaternion.identity;
 
+                    if (!(ingredient is Egg))
+                        playerController.SetHoldableObject(null);
 
-                    playerController.SetHoldableObject(null);
                 }
             }
             else //if the board holds a chopped ingredient    //here we pick up the chopped ingredient if possible
             {
-                if (playerController.PlayerState==PlayerStates.Holding) return; 
+                if (playerController.PlayerState == PlayerStates.Holding) return;
 
                 playerController.SetHoldableObject(cookedIngredient);
-                
+
                 cookingParticles.Stop();
                 cookedIngredient = null;
             }
