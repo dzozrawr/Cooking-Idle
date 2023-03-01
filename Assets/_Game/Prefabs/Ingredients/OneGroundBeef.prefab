@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8106071812392070415}
-  - component: {fileID: -1952371106126926987}
+  - component: {fileID: 1781195107226449603}
   m_Layer: 0
   m_Name: OneGroundBeef
   m_TagString: Untagged
@@ -94,7 +94,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1952371106126926987
+--- !u!114 &1781195107226449603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,14 +103,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8106071812392070414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67b6e17d672c9874183d3e38cd0fd09b, type: 3}
+  m_Script: {fileID: 11500000, guid: f66c100dab53d944fae4b5a0c25d905c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   preparedIngred: {fileID: -2068808218423880069, guid: c3154d3bc30f6be4698a197e023e3521, type: 3}
   renderer: {fileID: 7475721378426396542}
   cookedColor: {r: 0.36862746, g: 0, b: 0, a: 1}
-  pattyHighPos: {fileID: 6078412550300710603}
+  jumpHighPos: {fileID: 6078412550300710603}
   ingredientParentTransform: {fileID: 7243817142852901330}
 --- !u!1001 &8106071812070474746
 PrefabInstance:
