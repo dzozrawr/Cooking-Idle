@@ -75,8 +75,8 @@ MonoBehaviour:
   plateFoods:
   - ingredients: 020000000300000001000000
     foodPrefab: {fileID: 8106071812392070414, guid: b4f74083e34144e4a8c9a8a1ac543961, type: 3}
-  - ingredients: 020000000300000000000000
-    foodPrefab: {fileID: 7923134541368590349, guid: a63dcab4dcc0e0b42a09bebfb668caab, type: 3}
+  - ingredients: 060000000400000005000000
+    foodPrefab: {fileID: 6362392050935091104, guid: 755973f8d03a0f84f8f18d9a32c1ae67, type: 3}
 --- !u!1 &3809070644034022359
 GameObject:
   m_ObjectHideFlags: 0
