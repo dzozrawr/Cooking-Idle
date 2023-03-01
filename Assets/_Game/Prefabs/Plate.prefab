@@ -83,6 +83,9 @@ MonoBehaviour:
     foodPrefab: {fileID: 2505769964296484884, guid: b0421918b3ec65149815b9bd55c9d498, type: 3}
   - ingredients: 0a0000000900000000000000
     foodPrefab: {fileID: 307210251893527653, guid: 76ac46a9885deaf4fb91ba126c039894, type: 3}
+  - ingredients: 010000000000000005000000
+    foodPrefab: {fileID: 6720557300420926973, guid: 4ae2e15bd53dc614da112f9115fefbfe, type: 3}
+  plateModel: {fileID: 4884190194381047439}
 --- !u!1 &3809070644034022359
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +336,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Plate_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7cc13f9ac2e060c4a961313f389e8329, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc13f9ac2e060c4a961313f389e8329, type: 3}
+--- !u!1 &4884190194381047439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7cc13f9ac2e060c4a961313f389e8329, type: 3}
+  m_PrefabInstance: {fileID: 5695163241769630686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5225285757559053365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7cc13f9ac2e060c4a961313f389e8329, type: 3}

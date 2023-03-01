@@ -25,6 +25,8 @@ public class Plate : HoldableObject
 
     public List<PlateFood> plateFoods = null;
 
+    public GameObject plateModel = null;
+
 
 
     private PlayerController playerController = null;
@@ -147,12 +149,23 @@ public class Plate : HoldableObject
         foodModelGO.transform.position = placeForFoodModel.position;
         foodModelGO.transform.SetParent(placeForFoodModel);
 
+        Food foodScript = foodModelGO.GetComponent<Food>();
+        if (foodScript != null)
+        {
+            if (foodScript.hasPlate)
+            {
+                plateModel.SetActive(false);
+            }
+        }
+
         Vector3 foodModelDefaultScale = foodModelGO.transform.localScale;
         foodModelGO.transform.localScale = Vector3.zero;
 
         Sequence tweenSeq = DOTween.Sequence();
         tweenSeq.Append(placesForIngredientsParent.transform.DOScale(Vector3.zero, 0.1f));
         tweenSeq.Append(foodModelGO.transform.DOScale(foodModelDefaultScale, 0.1f));
+
+
         tweenSeq.AppendCallback(() =>
         {
             Destroy(placesForIngredientsParent.gameObject);
