@@ -109,7 +109,7 @@ MonoBehaviour:
   type: 0
   preparedIngred: {fileID: -2068808218423880069, guid: 889d283a61c706549bc69bbb08da8331, type: 3}
   renderer: {fileID: 7825606329198795101}
-  cookedColor: {r: 0.36862746, g: 0, b: 0, a: 1}
+  cookedColor: {r: 0.7176471, g: 0.4627451, b: 0.4627451, a: 1}
   jumpHighPos: {fileID: 6078412550300710603}
   ingredientParentTransform: {fileID: 7243817142852901330}
 --- !u!1001 &8888899359669994969
