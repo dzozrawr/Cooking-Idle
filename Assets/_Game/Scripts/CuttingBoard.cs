@@ -38,6 +38,7 @@ public class CuttingBoard : MonoBehaviour
                 progressCircle.SetProgress(1f);
                 choppedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
                 choppedIngredient.transform.position = placeForIngredient.position;
+                choppedIngredient.transform.forward = placeForIngredient.transform.right;
                 choppedIngredient.transform.SetParent(placeForIngredient);
 
                 Destroy(ingredient.gameObject);
@@ -71,7 +72,7 @@ public class CuttingBoard : MonoBehaviour
                     //place the ingredient that player is holding on the board
                     ingredient.transform.position = placeForIngredient.position;
                     ingredient.transform.SetParent(placeForIngredient);
-                    ingredient.transform.rotation = Quaternion.identity;
+                    ingredient.transform.forward = placeForIngredient.transform.right;
 
 
                     playerController.SetHoldableObject(null);
