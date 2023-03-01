@@ -8,20 +8,17 @@ public class PanFryableIngredient : FreshIngredient
     public Renderer renderer = null;
     public Color cookedColor;
 
-    public Transform pattyHighPos = null;
-
-
-    private Material mat = null;
-    private Color startColor;
+    public Transform jumpHighPos = null;
     public Transform ingredientParentTransform = null;
 
-    private bool firstCookingEffectEntry = true;
+    protected Material mat = null;
+    protected Color startColor;
 
-    
+    protected bool firstCookingEffectEntry = true;
 
-    private Vector3 ingredientDefaultPos;
+    protected Vector3 ingredientDefaultPos;
 
-    private Sequence jumpSequence, rotateSequence;
+    protected Sequence jumpSequence, rotateSequence;
 
     private void Awake()
     {
@@ -31,29 +28,16 @@ public class PanFryableIngredient : FreshIngredient
        // ingredientParentTransform = renderer.transform;
         ingredientDefaultPos = ingredientParentTransform.localPosition;
 
-        jumpSequence = DOTween.Sequence();
-        jumpSequence.Append(ingredientParentTransform.DOLocalMove(pattyHighPos.position, 0.33f));
-        jumpSequence.Append(ingredientParentTransform.DOLocalMove(ingredientDefaultPos, 0.33f));
-        jumpSequence.AppendInterval(0.33f);
-        jumpSequence.SetLoops(-1);
-        jumpSequence.Pause();
+        InitTween();
+    }
 
-        rotateSequence = DOTween.Sequence();
-        // rotateSequence.Append(ingredientTransform.DOBlendableLocalRotateBy(new Vector3(0, 0, 270), 0.33f));
-        // rotateSequence.Append(ingredientTransform.DOBlendableLocalRotateBy(new Vector3(0, 0, 270), 0.33f));
+    protected virtual void InitTween()
+    {
 
-        rotateSequence.Append(ingredientParentTransform.DOBlendableRotateBy(new Vector3(0, 0, 180), 0.22f));
-        rotateSequence.Append(ingredientParentTransform.DOBlendableRotateBy(new Vector3(0, 0, 90), 0.11f));
-        rotateSequence.Append(ingredientParentTransform.DOBlendableRotateBy(new Vector3(0, 0, 180), 0.22f));
-        rotateSequence.Append(ingredientParentTransform.DOBlendableRotateBy(new Vector3(0, 0, 90), 0.11f));
-
-        rotateSequence.AppendInterval(0.33f);
-        rotateSequence.SetLoops(-1);
-        rotateSequence.Pause();
     }
 
 
-    public void CookingEffect(float progress)
+    public virtual void CookingEffect(float progress)
     {
         if (firstCookingEffectEntry)
         {
