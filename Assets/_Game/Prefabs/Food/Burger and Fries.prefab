@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3960573064455922786}
   m_LocalRotation: {x: -0.19685185, y: 0.79939765, z: 0.48584294, w: 0.29354635}
   m_LocalPosition: {x: -3.484, y: 0.02, z: 0.499}
-  m_LocalScale: {x: 0.70772636, y: 0.70772624, z: 0.70772636}
+  m_LocalScale: {x: 1.322662, y: 1.3226618, z: 1.322662}
   m_Children:
   - {fileID: 5866577253646231097}
   - {fileID: 5794842603988475381}
@@ -62,15 +62,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6527887343750341217, guid: 7dbc5016287a421438d04b83688612bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23717514
+      value: -0.1114
       objectReference: {fileID: 0}
     - target: {fileID: 6527887343750341217, guid: 7dbc5016287a421438d04b83688612bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05612316
+      value: -0.0251
       objectReference: {fileID: 0}
     - target: {fileID: 6527887343750341217, guid: 7dbc5016287a421438d04b83688612bb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.08683779
+      value: -0.0076
       objectReference: {fileID: 0}
     - target: {fileID: 6527887343750341217, guid: 7dbc5016287a421438d04b83688612bb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -100,7 +100,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8666288263200158566, guid: 7dbc5016287a421438d04b83688612bb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7dbc5016287a421438d04b83688612bb, type: 3}
 --- !u!4 &5794842603988475381 stripped
 Transform:
@@ -206,15 +207,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5174420395341955373, guid: c6420b9261592eb4b871b6acac4d90c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 5174420395341955373, guid: c6420b9261592eb4b871b6acac4d90c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0709
       objectReference: {fileID: 0}
     - target: {fileID: 5174420395341955373, guid: c6420b9261592eb4b871b6acac4d90c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.0996
       objectReference: {fileID: 0}
     - target: {fileID: 5174420395341955373, guid: c6420b9261592eb4b871b6acac4d90c8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -248,7 +249,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_French Fries
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7949685653364403084, guid: c6420b9261592eb4b871b6acac4d90c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c6420b9261592eb4b871b6acac4d90c8, type: 3}
 --- !u!4 &5866577253646231097 stripped
 Transform:

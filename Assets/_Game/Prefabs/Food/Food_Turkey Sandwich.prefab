@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8774518681770342728}
   - component: {fileID: 5650471435055675117}
   - component: {fileID: 7606147236315841063}
-  - component: {fileID: 4129808419551419275}
   m_Layer: 0
   m_Name: Food_Turkey Sandwich
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4129808419551419275
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254687917382001650}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7204429358645282773, guid: 3a7c71c15f3a4db48a589bf6542435e9, type: 3}

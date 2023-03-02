@@ -102,7 +102,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_Steak
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1277254021831242673, guid: ddc590ae56d02484faba95939304dc79, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ddc590ae56d02484faba95939304dc79, type: 3}
 --- !u!4 &6402461780327041255 stripped
 Transform:
@@ -176,7 +177,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 93.775
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 846581636032892770, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
 --- !u!4 &4223712801592700394 stripped
 Transform:
@@ -250,7 +252,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_Rice
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3340897409709750905, guid: 30b514f0793b09641a844b6a4210870c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30b514f0793b09641a844b6a4210870c, type: 3}
 --- !u!4 &5053909836166230325 stripped
 Transform:
@@ -402,7 +405,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 80.587
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 846581636032892770, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
 --- !u!4 &7248956232247842711 stripped
 Transform:
