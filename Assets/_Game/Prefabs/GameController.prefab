@@ -79,3 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a92aca00ea4f694dbfb95c5605d0894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pots: []
+  pans: []
+  cuttingBoards: []
+  deepFriers: []

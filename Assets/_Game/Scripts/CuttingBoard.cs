@@ -20,6 +20,9 @@ public class CuttingBoard : MonoBehaviour
 
     private float choppingTimer = 0f;
 
+    public HoldableObject Ingredient { get => ingredient; set => ingredient = value; }
+    public HoldableObject ChoppedIngredient { get => choppedIngredient; set => choppedIngredient = value; }
+
     private void Update()
     {
         if (ingredient != null)

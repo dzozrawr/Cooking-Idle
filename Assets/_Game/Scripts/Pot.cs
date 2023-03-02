@@ -23,6 +23,9 @@ public class Pot : MonoBehaviour
 
     private float choppingTimer = 0f;
 
+    public HoldableObject Ingredient { get => ingredient; set => ingredient = value; }
+    public HoldableObject CookedIngredient { get => cookedIngredient; set => cookedIngredient = value; }
+
     private void Update()
     {
         if (ingredient != null)
