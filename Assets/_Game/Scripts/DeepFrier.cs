@@ -92,6 +92,7 @@ public class DeepFrier : MonoBehaviour
                     ingredient.transform.position = placeForIngredient.position;
                     ingredient.transform.SetParent(placeForIngredient);
                     ingredient.transform.rotation = Quaternion.identity;
+                    //ingredient.transform.rotation = Quaternion.Euler(deepFriableIngredient.rotationForDeepFryer) ;
 
 
                     playerController.SetHoldableObject(null);

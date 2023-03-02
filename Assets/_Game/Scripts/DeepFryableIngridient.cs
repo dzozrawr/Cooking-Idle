@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class DeepFryableIngridient : FreshIngredient
 {
-    
+    public Vector3 rotationForDeepFryer;
 }
