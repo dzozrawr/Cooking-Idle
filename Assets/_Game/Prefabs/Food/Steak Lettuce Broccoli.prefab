@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4065565998591667630}
   m_Layer: 0
-  m_Name: Steak and veggies
+  m_Name: Steak Lettuce Broccoli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2505769964296484884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.001}
-  m_LocalScale: {x: 11.98318, y: 11.98318, z: 11.98318}
+  m_LocalScale: {x: 19.054455, y: 19.054455, z: 19.054455}
   m_Children:
   - {fileID: 7395043344191726886}
   - {fileID: 5049607896320157046}
@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2925768
+      value: 0.00634785
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.047399778
+      value: 0.0055035087
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -178,7 +178,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -31.898
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 846581636032892770, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
 --- !u!4 &726195867816307119 stripped
 Transform:
@@ -214,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2878201
+      value: 0.011104539
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -222,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.049402583
+      value: 0.007506314
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -252,7 +253,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 30.539
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 846581636032892770, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
 --- !u!4 &557316296755014987 stripped
 Transform:
@@ -288,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7706439381206155102, guid: a39885acf60cabb49ae5f1ed9464e7b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.30292463
+      value: -0.004
       objectReference: {fileID: 0}
     - target: {fileID: 7706439381206155102, guid: a39885acf60cabb49ae5f1ed9464e7b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -296,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7706439381206155102, guid: a39885acf60cabb49ae5f1ed9464e7b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.044896267
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 7706439381206155102, guid: a39885acf60cabb49ae5f1ed9464e7b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -326,7 +328,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7657959904922306582, guid: a39885acf60cabb49ae5f1ed9464e7b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a39885acf60cabb49ae5f1ed9464e7b9, type: 3}
 --- !u!4 &5049607896320157046 stripped
 Transform:
@@ -362,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2878201
+      value: 0.011104539
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -370,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.04272656
+      value: 0.00083029224
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -400,7 +403,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -14.034
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 846581636032892770, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
 --- !u!4 &1808653646568826485 stripped
 Transform:
@@ -432,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964539918679900832, guid: ddc590ae56d02484faba95939304dc79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2970128
+      value: 0.0019118339
       objectReference: {fileID: 0}
     - target: {fileID: 5964539918679900832, guid: ddc590ae56d02484faba95939304dc79, type: 3}
       propertyPath: m_LocalPosition.y
@@ -440,7 +444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964539918679900832, guid: ddc590ae56d02484faba95939304dc79, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.034411363
+      value: -0.007484906
       objectReference: {fileID: 0}
     - target: {fileID: 5964539918679900832, guid: ddc590ae56d02484faba95939304dc79, type: 3}
       propertyPath: m_LocalRotation.w
@@ -474,7 +478,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_Steak
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1277254021831242673, guid: ddc590ae56d02484faba95939304dc79, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ddc590ae56d02484faba95939304dc79, type: 3}
 --- !u!4 &1464161935379121286 stripped
 Transform:
@@ -510,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.29599825
+      value: 0.0029263943
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -518,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.05315785
+      value: 0.011261582
       objectReference: {fileID: 0}
     - target: {fileID: 3263803483341430950, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -548,7 +553,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -48.333
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 846581636032892770, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 23244ec81d1b60d4eb89d43c5a1606eb, type: 3}
 --- !u!4 &7395043344191726886 stripped
 Transform:

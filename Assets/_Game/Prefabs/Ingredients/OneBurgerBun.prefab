@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8106071812392070415}
   - component: {fileID: -2068808218423880069}
   m_Layer: 0
-  m_Name: BurgerBun
+  m_Name: OneBurgerBun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
