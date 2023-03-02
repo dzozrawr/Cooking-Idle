@@ -51,6 +51,7 @@ public class FryingPan : MonoBehaviour
 
                 Invoke(nameof(HideProgressCircleAfterDelay), 0.25f);
 
+                cookingParticles.Stop();
                 //   knifeChopper.ToggleChoppingPlay(false);
             }
         }
@@ -103,7 +104,7 @@ public class FryingPan : MonoBehaviour
 
                 playerController.SetHoldableObject(cookedIngredient);
 
-                cookingParticles.Stop();
+               // cookingParticles.Stop();
                 cookedIngredient = null;
             }
         }

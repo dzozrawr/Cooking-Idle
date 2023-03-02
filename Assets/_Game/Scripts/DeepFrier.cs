@@ -50,7 +50,7 @@ public class DeepFrier : MonoBehaviour
                 ingredient = null;
 
                 Invoke(nameof(HideProgressCircleAfterDelay), 0.25f);
-
+                ToggleCookingFX(false);
                 //   knifeChopper.ToggleChoppingPlay(false);
             }
         }
@@ -103,7 +103,7 @@ public class DeepFrier : MonoBehaviour
 
                 playerController.SetHoldableObject(cookedIngredient);
 
-                ToggleCookingFX(false);
+                //ToggleCookingFX(false);
                 cookedIngredient = null;
             }
         }

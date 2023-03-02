@@ -50,7 +50,7 @@ public class Pot : MonoBehaviour
                 ingredient = null;
 
                 Invoke(nameof(HideProgressCircleAfterDelay), 0.25f);
-
+                TogglePotCookingFX(false);
                 //   knifeChopper.ToggleChoppingPlay(false);
             }
         }
@@ -103,7 +103,7 @@ public class Pot : MonoBehaviour
 
                 playerController.SetHoldableObject(cookedIngredient);
 
-                TogglePotCookingFX(false);
+               // TogglePotCookingFX(false);
                 cookedIngredient = null;
             }
         }
