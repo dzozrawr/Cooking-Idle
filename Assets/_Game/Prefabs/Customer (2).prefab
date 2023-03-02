@@ -104,14 +104,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4316105609529210541}
-  m_LocalRotation: {x: 0.017258843, y: -0.8918266, z: 0.03414631, w: -0.45075658}
-  m_LocalPosition: {x: -0.47, y: 1.188, z: 0.36}
-  m_LocalScale: {x: 0.37113622, y: 0.37113622, z: 0.37113622}
+  m_LocalRotation: {x: 0.037542112, y: -0.89294064, z: 0.069490485, w: -0.4431914}
+  m_LocalPosition: {x: -1.5242949, y: -0.61155975, z: 1.1017126}
+  m_LocalScale: {x: 1.2371211, y: 1.2371207, z: 1.2371209}
   m_Children:
   - {fileID: 2076078125101265150}
   - {fileID: 5251145572004307467}
-  m_Father: {fileID: 6387907283964795219}
-  m_RootOrder: 3
+  m_Father: {fileID: 2312883697771842770}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 2.599, y: 126.293, z: -3.533}
 --- !u!1 &6387907283964795228
 GameObject:
@@ -144,7 +144,6 @@ Transform:
   - {fileID: 6858101152855464639}
   - {fileID: 4015338000964408297}
   - {fileID: 2384347129104602668}
-  - {fileID: 3507797800718920727}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -538,6 +537,11 @@ Transform:
 --- !u!137 &4079782519732103740 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -2290032844319090840, guid: eacba0f16a21e7346974ea91ac0aaa84, type: 3}
+  m_PrefabInstance: {fileID: 6387907285311094100}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2312883697771842770 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8700783698680967558, guid: eacba0f16a21e7346974ea91ac0aaa84, type: 3}
   m_PrefabInstance: {fileID: 6387907285311094100}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &4045108543076087571
