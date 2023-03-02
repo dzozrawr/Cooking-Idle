@@ -62,6 +62,8 @@ namespace PlayerNamespace
         // Start is called before the first frame update
         void Start()
         {
+          //  GameObject testTarget = GameObject.Find("Ingredient box burger bun (1)");
+          //  guidingIndicator.SetTargetAndEnable(testTarget.transform);
             // playerAnimator.SetTrigger("Walk");
             //playerAnimator.SetFloat("speed", 0f);
             //  joystick.OnPointerDown(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.));
@@ -118,8 +120,8 @@ namespace PlayerNamespace
             }
 
             holdableObject.transform.position = placeForIngredient.transform.position;
-//            holdableObject.transform.SetParent(placeForIngredient.transform);
-            holdableObject.transform.parent=placeForIngredient.transform;
+            //            holdableObject.transform.SetParent(placeForIngredient.transform);
+            holdableObject.transform.parent = placeForIngredient.transform;
             //holdableObject.transform.rotation=Quaternion.Euler(0,0,0);
             //holdableObject.transform.rotation=Quaternion.identity;
 
@@ -160,6 +162,9 @@ namespace PlayerNamespace
 
             // joystick.
             //joystick.Vertical
+        }
+        private void OnTriggerEnter(Collider other) {
+            guidingIndicator.PlayerTriggered(other.transform);
         }
 
         /*     public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel, float marketScaleBy = 1f)

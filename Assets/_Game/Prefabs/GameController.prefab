@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8222241842013124584}
   - component: {fileID: 6157970904649718400}
   - component: {fileID: 4171036368795895596}
+  - component: {fileID: 3806391349782488903}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -46,8 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orders:
   - orderSprite: {fileID: 0}
+    foodName: 
     ingredientList: 0000000001000000
   - orderSprite: {fileID: 0}
+    foodName: 
     ingredientList: 0000000000000000
   playerController: {fileID: 0}
   ingredientSpriteHolder: {fileID: 4171036368795895596}
@@ -64,3 +67,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingrTypeSpriteList: []
+--- !u!114 &3806391349782488903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225395369027233027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a92aca00ea4f694dbfb95c5605d0894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

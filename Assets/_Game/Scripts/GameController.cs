@@ -19,9 +19,12 @@ public class GameController : MonoBehaviour
 
     private static int coinAmount;
 
+    private Order activeOrder=null; //this value should be changed when order is finished
+
     private GameCanvas gameCanvas = null;
     public static int CoinAmount { get => coinAmount; set => coinAmount = value; }
     public GameCanvas GameCanvas { get => gameCanvas; set => gameCanvas = value; }
+    public Order ActiveOrder { get => activeOrder; set => activeOrder = value; }
 
     private void Awake()
     {
@@ -31,7 +34,9 @@ public class GameController : MonoBehaviour
             return;
         }
         instance = this;
+        activeOrder=orders[0];
     }
+
 
 #if UNITY_EDITOR
     private void Update()
@@ -51,7 +56,7 @@ public class GameController : MonoBehaviour
             {
                 Debug.Log("Level over");
                 return true;
-            }
+            } else activeOrder=orders[0];
           //  gameCanvas.orderUI.SetOrderUIBasedOnOrder(orders[0]);            
             return true;
         }

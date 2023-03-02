@@ -4,11 +4,13 @@ using PlayerNamespace;
 using UnityEngine;
 using HoldableNameSpace;
 using DG.Tweening;
+using Ingredients;
 
 public class IngredientBox : MonoBehaviour
 {
     public HoldableObject ingredientPrefab = null;
     public GameObject boxModel=null;
+    public IngredientType ingredientType;
 
     private PlayerController playerController = null;
 
