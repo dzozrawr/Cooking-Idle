@@ -140,6 +140,7 @@ namespace PlayerNamespace
         public void TriggerIdleAnim()
         {
             playerAnimator.SetBool("isWalking", true);
+            playerAnimator.SetTrigger("Idle");
             if (playerAnimator.GetBool("isBucketWalking")) playerAnimator.SetBool("isBucketWalking", false);
             hasIngredient = false;
         }
