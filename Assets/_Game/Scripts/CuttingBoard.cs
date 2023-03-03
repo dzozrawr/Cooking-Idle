@@ -74,6 +74,7 @@ public class CuttingBoard : CookingTool
 
 
                     playerController.SetHoldableObject(null);
+                    playerController.SuccesfulTrigger(transform);
                 }
             }
             else //if the board holds a chopped ingredient    //here we pick up the chopped ingredient if possible
@@ -83,6 +84,8 @@ public class CuttingBoard : CookingTool
                 playerController.SetHoldableObject(preparedIngredient);
 
                 preparedIngredient = null;
+
+                playerController.SuccesfulTrigger(transform);
             }
         }
     }

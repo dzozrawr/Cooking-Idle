@@ -26,6 +26,8 @@ public class IngredientBox : MonoBehaviour
             playerController.SetHoldableObject(newTomato.GetComponent<HoldableObject>());
 
             boxModel.transform.DOPunchScale(boxModel.transform.localScale*0.2f,0.2f,10,0.5f);
+
+            playerController.SuccesfulTrigger(transform);
         }
     }
 }

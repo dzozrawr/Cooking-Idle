@@ -19,6 +19,8 @@ public class RecycleBin : MonoBehaviour
 
             playerController.SetHoldableObject(null, true);
             recycleBinModel.transform.DOPunchScale(recycleBinModel.transform.localScale*0.2f,0.2f,10,0.5f);
+
+            playerController.SuccesfulTrigger(transform);
         }
     }
 }

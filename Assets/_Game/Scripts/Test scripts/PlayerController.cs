@@ -163,8 +163,12 @@ namespace PlayerNamespace
             // joystick.
             //joystick.Vertical
         }
-        private void OnTriggerEnter(Collider other) {
+/*         private void OnTriggerEnter(Collider other) {
             guidingIndicator.PlayerTriggered(other.transform);
+        } */
+
+        public void SuccesfulTrigger(Transform otherTransform){
+            guidingIndicator.PlayerTriggered(otherTransform);
         }
 
         /*     public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel, float marketScaleBy = 1f)

@@ -44,6 +44,7 @@ public class FinishSpot : MonoBehaviour
                     playerController.SetHoldableObject(null);
 
                     Invoke(nameof(PlateMatchAfterDelay), 0.85f);
+                    playerController.SuccesfulTrigger(transform);
                 }
             }
         }

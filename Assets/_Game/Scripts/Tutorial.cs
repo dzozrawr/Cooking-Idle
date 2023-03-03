@@ -213,8 +213,6 @@ public class Tutorial : MonoBehaviour
         if (plate == null)
         {
             plate = GameObject.FindObjectOfType<Plate>();
-            if (player != null)
-                Debug.Log("Set new plate");
         }
 
         ingredientList = gameController.ActiveOrder.ingredientList;
@@ -223,12 +221,12 @@ public class Tutorial : MonoBehaviour
             IngrTutorial ingrTutorial = new IngrTutorial();
             ingrTutorial.type = it;
             ingrTutorials.Add(ingrTutorial);
-            Debug.Log(it);
+            //Debug.Log(it);
         }
 
         ingrN = ingrTutorials.Count;
 
-        Debug.Log(ingrN);
+        //Debug.Log(ingrN);
 
         UpdateTutorialCore();
     }
