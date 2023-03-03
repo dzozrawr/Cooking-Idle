@@ -441,6 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 5681141926552238135}
+  moneyImg: {fileID: 7087663609886232905}
+  disabledButtonColor: {r: 0.67058825, g: 0.64705884, b: 0.64705884, a: 1}
   cookingTimesForLevels:
   - 5
   - 3

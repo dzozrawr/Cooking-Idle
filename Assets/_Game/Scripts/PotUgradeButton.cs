@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanUpgradeButton : UpgradeButton
+public class PotUgradeButton : UpgradeButton
 {
-
-
 
 
     private void Start()
@@ -17,10 +15,8 @@ public class PanUpgradeButton : UpgradeButton
         maxLevel = pricesForLevels.Count;
     }
 
-
-
     protected override void UpgradeEffect()
     {
-        FryingPan.timeToCook = upgradeValuesForLevels[level];
+        Pot.timeToCook = upgradeValuesForLevels[level];
     }
 }
