@@ -6,7 +6,7 @@ using HoldableNameSpace;
 
 public class DeepFrier : CookingTool
 {
-
+    public static float timeToCook = 10f;
     public ParticleSystem cookingParticles = null;
     public AnimatedTextureUVs waterAnimation = null;
 
@@ -15,7 +15,7 @@ public class DeepFrier : CookingTool
 
     private DeepFryableIngridient deepFriableIngredient = null;
 
-    private float timeToChop = 3f;
+  //  private float timeToCook = 3f;
 
     private float choppingTimer = 0f;
 
@@ -31,10 +31,10 @@ public class DeepFrier : CookingTool
             }
             choppingTimer += Time.deltaTime;
 
-            progressCircle.SetProgress(choppingTimer / timeToChop);
+            progressCircle.SetProgress(choppingTimer / timeToCook);
             // potCookableIngredient.CookingEffect(choppingTimer / timeToChop);
             //here also update the progress bar
-            if (choppingTimer > timeToChop)
+            if (choppingTimer > timeToCook)
             {
                 choppingTimer = 0f;
                 progressCircle.SetProgress(1f);

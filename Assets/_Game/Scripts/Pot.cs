@@ -7,7 +7,7 @@ using HoldableNameSpace;
 public class Pot : CookingTool
 {
 
-
+    public static float timeToCook = 9f;
     public ParticleSystem cookingParticles = null;
     public AnimatedTextureUVs waterAnimation = null;
 
@@ -17,7 +17,7 @@ public class Pot : CookingTool
 
     private PotCookableIngridient potCookableIngredient = null;
 
-    private float timeToChop = 3f;
+  //  private float timeToCook = 3f;
 
     private float choppingTimer = 0f;
 
@@ -35,10 +35,10 @@ public class Pot : CookingTool
             }
             choppingTimer += Time.deltaTime;
 
-            progressCircle.SetProgress(choppingTimer / timeToChop);
+            progressCircle.SetProgress(choppingTimer / timeToCook);
             // potCookableIngredient.CookingEffect(choppingTimer / timeToChop);
             //here also update the progress bar
-            if (choppingTimer > timeToChop)
+            if (choppingTimer > timeToCook)
             {
                 choppingTimer = 0f;
                 progressCircle.SetProgress(1f);

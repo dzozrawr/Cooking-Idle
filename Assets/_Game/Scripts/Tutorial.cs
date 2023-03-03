@@ -73,7 +73,7 @@ public class Tutorial : MonoBehaviour
 
     private void UpdateTutorialCore()
     {
-        Debug.Log("ingrIndex="+ingrIndex);
+       // Debug.Log("ingrIndex="+ingrIndex);
         if (isOrderDone)
         {
             player.guidingIndicator.SetEnabled(false);

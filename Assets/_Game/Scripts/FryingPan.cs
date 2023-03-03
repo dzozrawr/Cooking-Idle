@@ -6,6 +6,7 @@ using HoldableNameSpace;
 
 public class FryingPan : CookingTool
 {
+    public static float timeToCook=8f;
 
     public ParticleSystem cookingParticles = null;
 
@@ -14,7 +15,7 @@ public class FryingPan : CookingTool
 
     private PanFryableIngredient panFryableIngredient = null;
 
-    private float timeToChop = 3f;
+  //  private float timeToChop = 3f;
 
     private float choppingTimer = 0f;
 
@@ -30,10 +31,10 @@ public class FryingPan : CookingTool
             }
             choppingTimer += Time.deltaTime;
 
-            progressCircle.SetProgress(choppingTimer / timeToChop);
-            panFryableIngredient.CookingEffect(choppingTimer / timeToChop);
+            progressCircle.SetProgress(choppingTimer / timeToCook);
+            panFryableIngredient.CookingEffect(choppingTimer / timeToCook);
             //here also update the progress bar
-            if (choppingTimer > timeToChop)
+            if (choppingTimer > timeToCook)
             {
                 choppingTimer = 0f;
                 progressCircle.SetProgress(1f);
