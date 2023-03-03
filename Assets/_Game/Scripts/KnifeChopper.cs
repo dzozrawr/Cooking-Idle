@@ -10,29 +10,40 @@ public class KnifeChopper : MonoBehaviour
 
     private Sequence tweenSequence = null;
 
-/*     private void Start()
+    private Sequence rotationSequence = null;
+
+    /*     private void Start()
+        {
+            tweenSequence = DOTween.Sequence();
+
+            //Tween lowToHigh= 
+
+            tweenSequence.Append(knifeModel.transform.DOMove(knifeHighPoint.position, 0.25f));
+            tweenSequence.Append(knifeModel.transform.DOMove(knifeLowPoint.position, 0.25f));
+            tweenSequence.SetLoops(-1);
+            tweenSequence.Pause();
+        } */
+
+
+
+    private void CreateChoppingSequence()
     {
         tweenSequence = DOTween.Sequence();
 
         //Tween lowToHigh= 
-
-        tweenSequence.Append(knifeModel.transform.DOMove(knifeHighPoint.position, 0.25f));
         tweenSequence.Append(knifeModel.transform.DOMove(knifeLowPoint.position, 0.25f));
+        tweenSequence.Append(knifeModel.transform.DOMove(knifeHighPoint.position, 0.25f));
+
         tweenSequence.SetLoops(-1);
         tweenSequence.Pause();
-    } */
 
+        Vector3 knifeRot = knifeModel.transform.rotation.eulerAngles;
+        rotationSequence = DOTween.Sequence();
+        rotationSequence.Append(knifeModel.transform.DORotate(new Vector3(0, knifeRot.y, knifeRot.z), 0.25f));
+        rotationSequence.Append(knifeModel.transform.DORotate(new Vector3(-30, knifeRot.y, knifeRot.z), 0.25f));
 
-
-    private void CreateChoppingSequence(){
-        tweenSequence = DOTween.Sequence();
-
-        //Tween lowToHigh= 
-
-        tweenSequence.Append(knifeModel.transform.DOMove(knifeHighPoint.position, 0.25f));
-        tweenSequence.Append(knifeModel.transform.DOMove(knifeLowPoint.position, 0.25f));
-        tweenSequence.SetLoops(-1);
-        tweenSequence.Pause();
+        rotationSequence.SetLoops(-1);
+        rotationSequence.Pause();
     }
 
 
@@ -41,14 +52,28 @@ public class KnifeChopper : MonoBehaviour
         if (shouldPlay)
         {
             CreateChoppingSequence();
-            knifeModel.transform.position = knifeLowPoint.position;
+            knifeModel.transform.position = knifeHighPoint.position;
             knifeModel.SetActive(true);
             tweenSequence.Play();
+            rotationSequence.Play();
         }
         else
         {
             tweenSequence.Pause();
+            rotationSequence.Pause();
             knifeModel.SetActive(false);
         }
+    }
+    [ContextMenu("PlayChopping")]
+    public void PlayChopping()
+    {
+
+        CreateChoppingSequence();
+        knifeModel.transform.position = knifeHighPoint.position;
+        knifeModel.SetActive(true);
+        tweenSequence.Play();
+        rotationSequence.Play();
+
+
     }
 }
