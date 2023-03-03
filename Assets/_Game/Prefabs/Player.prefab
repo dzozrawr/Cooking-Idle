@@ -275,13 +275,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.358823
+  m_Height: 0.5
   m_Radius: 0.08970575
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.075, z: 0}
 --- !u!136 &2927797336241873116
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -293,9 +293,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.12
-  m_Height: 0.358823
+  m_Height: 0.49190545
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.07095192, z: 0}
 --- !u!1 &3559074646733222835
 GameObject:
   m_ObjectHideFlags: 0

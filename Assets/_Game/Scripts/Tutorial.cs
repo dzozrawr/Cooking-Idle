@@ -17,12 +17,14 @@ public class Tutorial : MonoBehaviour
         public Transform prevTarget = null;
     }
 
-    public List<Pot> pots = null;
-    public List<FryingPan> pans = null;
-    public List<CuttingBoard> cuttingBoards = null;
-    public List<DeepFrier> deepFriers = null;
+    public List<CookingTool> pots = null;
+    public List<CookingTool> pans = null;
+    public List<CookingTool> cuttingBoards = null;
+    public List<CookingTool> deepFriers = null;
     public Plate plate = null;
     public FinishSpot finishSpot = null;    //should be a list
+
+    public RecycleBin recycleBin = null;
 
     private GameController gameController = null;
     private PlayerController player = null;
@@ -34,7 +36,9 @@ public class Tutorial : MonoBehaviour
 
     private int ingrN = 0;
     private int ingrIndex = 0;
-    
+
+    private bool toFinishSpot = false, isOrderDone = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,25 +46,19 @@ public class Tutorial : MonoBehaviour
         ingredientBoxHolder = IngredientBoxHolder.Instance;
         player = gameController.playerController;
 
-        ingredientList = gameController.ActiveOrder.ingredientList;
+
 
         player.guidingIndicator.TargetReached += UpdateTutorial;
+        gameController.NewOrderAppeared += InitTutorial;
+
 
         //player.guidingIndicator.SetTargetAndEnable(ingredientBoxHolder.GetIngredientBox(ingredientList[0]).transform);
 
-        foreach (IngredientType it in ingredientList)
-        {
-            IngrTutorial ingrTutorial = new IngrTutorial();
-            ingrTutorial.type = it;
-            ingrTutorials.Add(ingrTutorial);
-            Debug.Log(it);
-        }
 
-        ingrN = ingrTutorials.Count;
+        InitTutorial();
 
 
-
-        UpdateTutorialCore();
+        //        UpdateTutorialCore();
     }
 
     IEnumerator FrameEndWait()
@@ -75,6 +73,22 @@ public class Tutorial : MonoBehaviour
 
     private void UpdateTutorialCore()
     {
+        Debug.Log("ingrIndex="+ingrIndex);
+        if (isOrderDone)
+        {
+            player.guidingIndicator.SetEnabled(false);
+            isOrderDone = false;
+
+            ResetTutorial();
+            return;
+        }
+        if (toFinishSpot)
+        {
+            player.guidingIndicator.SetTargetAndEnable(finishSpot.transform);
+            toFinishSpot = false;
+            isOrderDone = true;
+            return;
+        }
         // Debug.Log("ingrTutorials[ingrIndex].phase == IngredientPhase.PickUp");
         if (ingrTutorials[ingrIndex].phase == IngredientPhase.PickUp)
         {
@@ -83,49 +97,51 @@ public class Tutorial : MonoBehaviour
             ingrTutorials[ingrIndex].phase = IngredientPhase.PickUp2;
 
             ingrTutorials[ingrIndex].prevTarget = target;
+
+          //  Debug.Log(ingrTutorials[ingrIndex].type);
             return;
         }
 
         if (ingrTutorials[ingrIndex].phase == IngredientPhase.PickUp2)
         {
+            if (player.HeldObject is PreparedIngredient)
+            {
+                player.guidingIndicator.SetTargetAndEnable(plate.transform);
+                ingrTutorials[ingrIndex].prevTarget = plate.transform;
+
+                ingrTutorials[ingrIndex].phase = IngredientPhase.ToPlate;
+                ingrIndex = (ingrIndex + 1) % ingrN;
+                return;
+            }
+            else
             if (player.HeldObject is PotCookableIngridient)
             {
-                foreach (Pot pot in pots)
-                {
-                    if (!pot.gameObject.activeSelf) continue;
-                    if ((pot.Ingredient == null) && (pot.CookedIngredient == null))
-                    {
-                        player.guidingIndicator.SetTargetAndEnable(pot.transform);
-                        ingrTutorials[ingrIndex].prevTarget = pot.transform;
-                        break;
-                    }
-                }
+                TargetFreeCookingTool(pots);
                 //find a free pot
             }
             else
             if (player.HeldObject is PanFryableIngredient)
             {
-
+                TargetFreeCookingTool(pans);
             }
             else
             if (player.HeldObject is ChoppableIngredient)
             {
-
-                foreach (CuttingBoard cuttingBoard in cuttingBoards)
-                {
-                    if (!cuttingBoard.gameObject.activeSelf) continue;
-                    if ((cuttingBoard.Ingredient == null) && (cuttingBoard.ChoppedIngredient == null))
-                    {
-                        player.guidingIndicator.SetTargetAndEnable(cuttingBoard.transform);
-                        ingrTutorials[ingrIndex].prevTarget = cuttingBoard.transform;
-                        break;
-                    }
-                }
+                TargetFreeCookingTool(cuttingBoards);
             }
             else
             if (player.HeldObject is DeepFryableIngridient)
             {
+                TargetFreeCookingTool(deepFriers);
+            }
 
+            if (!player.guidingIndicator.IsEnabled)
+            { //no available cooking tools, so go to trash can
+                player.guidingIndicator.SetTargetAndEnable(recycleBin.transform);
+                ingrTutorials[ingrIndex].phase = IngredientPhase.PickUp;
+                ingrIndex = (ingrIndex + 1) % ingrN;
+                return;
+                //go to trash can
             }
 
             ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;
@@ -146,10 +162,10 @@ public class Tutorial : MonoBehaviour
 
         if (ingrTutorials[ingrIndex].phase == IngredientPhase.Preparing2)
         {
-            if(player.HeldObject is PreparedIngredient)
+            if (player.HeldObject is PreparedIngredient)
             {
                 player.guidingIndicator.SetTargetAndEnable(plate.transform);
-                ingrTutorials[ingrIndex].prevTarget=plate.transform;
+                ingrTutorials[ingrIndex].prevTarget = plate.transform;
 
                 ingrTutorials[ingrIndex].phase = IngredientPhase.ToPlate;
                 ingrIndex = (ingrIndex + 1) % ingrN;
@@ -163,30 +179,73 @@ public class Tutorial : MonoBehaviour
             return;
         }
 
-        if(ingrTutorials[ingrIndex].phase == IngredientPhase.Finished)
-        {
-            player.guidingIndicator.SetTargetAndEnable(finishSpot.transform);
-            return;
-        }
+
 
         bool areAllToPlate = true;
-        foreach (IngrTutorial iT in ingrTutorials)
+
+        for (int i = 0; i < ingrTutorials.Count; i++)
         {
-            if (iT.phase != IngredientPhase.ToPlate)
+            if (ingrTutorials[i].phase != IngredientPhase.ToPlate)
             {
                 areAllToPlate = false;
+                ingrIndex = i;
+                UpdateTutorialCore();
+                return;
             }
         }
         if (areAllToPlate)
         {
             player.guidingIndicator.SetTargetAndEnable(plate.transform);
-            foreach (IngrTutorial iT in ingrTutorials)
-            {
-                iT.phase = IngredientPhase.Finished;
-            }
+            toFinishSpot = true;
             return;
         }
 
+    }
+
+    private void ResetTutorial()
+    {
+        ingrTutorials = new List<IngrTutorial>();
+        ingrN = 0;
+        ingrIndex = 0;
+    }
+    private void InitTutorial()
+    {
+        if (plate == null)
+        {
+            plate = GameObject.FindObjectOfType<Plate>();
+            if (player != null)
+                Debug.Log("Set new plate");
+        }
+
+        ingredientList = gameController.ActiveOrder.ingredientList;
+        foreach (IngredientType it in ingredientList)
+        {
+            IngrTutorial ingrTutorial = new IngrTutorial();
+            ingrTutorial.type = it;
+            ingrTutorials.Add(ingrTutorial);
+            Debug.Log(it);
+        }
+
+        ingrN = ingrTutorials.Count;
+
+        Debug.Log(ingrN);
+
+        UpdateTutorialCore();
+    }
+
+    private void TargetFreeCookingTool(List<CookingTool> cookingTools)
+    {
+
+        foreach (CookingTool cookingTool in cookingTools)
+        {
+            if (!cookingTool.gameObject.activeSelf) continue;
+            if ((cookingTool.Ingredient == null) && (cookingTool.PreparedIngredient == null))
+            {
+                player.guidingIndicator.SetTargetAndEnable(cookingTool.transform);
+                ingrTutorials[ingrIndex].prevTarget = cookingTool.transform;
+                break;
+            }
+        }
     }
 
 

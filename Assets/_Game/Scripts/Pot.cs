@@ -4,18 +4,16 @@ using UnityEngine;
 using PlayerNamespace;
 using HoldableNameSpace;
 
-public class Pot : MonoBehaviour
+public class Pot : CookingTool
 {
-    public Transform placeForIngredient = null;
 
-    public ProgressCircle progressCircle = null;
 
     public ParticleSystem cookingParticles = null;
     public AnimatedTextureUVs waterAnimation = null;
 
     private PlayerController playerController = null;
 
-    private HoldableObject ingredient = null, cookedIngredient = null;
+
 
     private PotCookableIngridient potCookableIngredient = null;
 
@@ -23,8 +21,7 @@ public class Pot : MonoBehaviour
 
     private float choppingTimer = 0f;
 
-    public HoldableObject Ingredient { get => ingredient; set => ingredient = value; }
-    public HoldableObject CookedIngredient { get => cookedIngredient; set => cookedIngredient = value; }
+
 
     private void Update()
     {
@@ -45,9 +42,9 @@ public class Pot : MonoBehaviour
             {
                 choppingTimer = 0f;
                 progressCircle.SetProgress(1f);
-                cookedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
-                cookedIngredient.transform.position = placeForIngredient.position;
-                cookedIngredient.transform.SetParent(placeForIngredient);
+                preparedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
+                preparedIngredient.transform.position = placeForIngredient.position;
+                preparedIngredient.transform.SetParent(placeForIngredient);
 
                 Destroy(ingredient.gameObject);
                 ingredient = null;
@@ -83,7 +80,7 @@ public class Pot : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {//if player collides
             playerController = other.gameObject.GetComponent<PlayerController>();
-            if (cookedIngredient == null)  //if the board is empty
+            if (preparedIngredient == null)  //if the board is empty
             {
                 if (playerController.PlayerState == PlayerStates.Holding)    //player is holding something so leave the held object on the board
                 {
@@ -104,10 +101,10 @@ public class Pot : MonoBehaviour
             {
                 if (playerController.PlayerState == PlayerStates.Holding) return;
 
-                playerController.SetHoldableObject(cookedIngredient);
+                playerController.SetHoldableObject(preparedIngredient);
 
                // TogglePotCookingFX(false);
-                cookedIngredient = null;
+                preparedIngredient = null;
             }
         }
     }

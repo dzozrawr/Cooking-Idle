@@ -17,6 +17,8 @@ public class GuidingIndicator : MonoBehaviour
 
     private Transform target = null;
 
+    public bool IsEnabled { get => isEnabled; set => isEnabled = value; }
+
     private void Awake()
     {
         arrowIndicator.Renderer.enabled = false;

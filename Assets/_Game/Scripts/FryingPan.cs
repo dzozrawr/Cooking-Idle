@@ -4,18 +4,13 @@ using UnityEngine;
 using PlayerNamespace;
 using HoldableNameSpace;
 
-public class FryingPan : MonoBehaviour
+public class FryingPan : CookingTool
 {
-    public Transform placeForIngredient = null;
-
-    public ProgressCircle progressCircle = null;
 
     public ParticleSystem cookingParticles = null;
 
 
     private PlayerController playerController = null;
-
-    private HoldableObject ingredient = null, cookedIngredient = null;
 
     private PanFryableIngredient panFryableIngredient = null;
 
@@ -42,9 +37,9 @@ public class FryingPan : MonoBehaviour
             {
                 choppingTimer = 0f;
                 progressCircle.SetProgress(1f);
-                cookedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
-                cookedIngredient.transform.position = placeForIngredient.position;
-                cookedIngredient.transform.SetParent(placeForIngredient);
+                preparedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
+                preparedIngredient.transform.position = placeForIngredient.position;
+                preparedIngredient.transform.SetParent(placeForIngredient);
 
                 Destroy(ingredient.gameObject);
                 ingredient = null;
@@ -69,7 +64,7 @@ public class FryingPan : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {//if player collides
             playerController = other.gameObject.GetComponent<PlayerController>();
-            if (cookedIngredient == null)  //if the board is empty
+            if (preparedIngredient == null)  //if the board is empty
             {
                 if (playerController.PlayerState == PlayerStates.Holding)    //player is holding something so leave the held object on the board
                 {
@@ -102,10 +97,10 @@ public class FryingPan : MonoBehaviour
             {
                 if (playerController.PlayerState == PlayerStates.Holding) return;
 
-                playerController.SetHoldableObject(cookedIngredient);
+                playerController.SetHoldableObject(preparedIngredient);
 
                // cookingParticles.Stop();
-                cookedIngredient = null;
+                preparedIngredient = null;
             }
         }
     }

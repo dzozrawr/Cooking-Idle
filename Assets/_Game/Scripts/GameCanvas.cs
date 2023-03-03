@@ -109,7 +109,10 @@ public class GameCanvas : MonoBehaviour
         orderUI.orderParent.transform.DOMove(orderHidePlace.position, 0.33f).OnComplete(() =>
         {
             orderUI.SetOrderUIBasedOnOrder(gameController.orders[0]);
-            orderUI.orderParent.transform.DOMove(orderDefaultPosition, 0.33f);
+            orderUI.orderParent.transform.DOMove(orderDefaultPosition, 0.33f).OnComplete(() =>
+            {
+                gameController.NewOrderAppeared?.Invoke();
+            });
         });
     }
 
