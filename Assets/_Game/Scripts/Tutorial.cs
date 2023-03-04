@@ -215,7 +215,7 @@ public class Tutorial : MonoBehaviour
             plate = GameObject.FindObjectOfType<Plate>();
         }
 
-        ingredientList = gameController.ActiveOrder.ingredientList;
+        ingredientList = gameController.ActiveOrders[0].ingredientList;
         foreach (IngredientType it in ingredientList)
         {
             IngrTutorial ingrTutorial = new IngrTutorial();

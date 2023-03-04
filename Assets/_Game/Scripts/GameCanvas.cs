@@ -17,6 +17,8 @@ public class GameCanvas : MonoBehaviour
         public Image foodImg;
         public TMP_Text foodNameText = null;
         public IngredientUI[] ingredientsUI;
+
+        public Vector3 orderUIDefaultPos;
         //   public Image[] ingredientsImg = new Image[3];
         //private Ingredients.IngredientType[] ingredientsTypes = new IngredientType[3];
 
@@ -24,6 +26,7 @@ public class GameCanvas : MonoBehaviour
 
         public void SetOrderUIBasedOnOrder(Order order)
         {
+            if (order == null) orderParent.SetActive(false);
             IngredientSpriteHolder ingredientSpriteHolder = GameController.Instance.ingredientSpriteHolder;
             foodImg.sprite = order.orderSprite;
             foodNameText.text = order.foodName;
@@ -79,6 +82,7 @@ public class GameCanvas : MonoBehaviour
     }
     public TMP_Text coinAmountTxt = null;
     public OrderUI orderUI = null;
+    public List<OrderUI> orderUIs = null;
     public Transform orderHidePlace = null;
     private Vector3 orderDefaultPosition;
 
@@ -88,6 +92,11 @@ public class GameCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach (OrderUI orderUI in orderUIs)
+        {
+            orderUI.orderUIDefaultPos= orderUI.orderParent.transform.position;
+        }
+        //orderUI.orderUIDefaultPos
         orderDefaultPosition = orderUI.orderParent.transform.position;
         gameController = GameController.Instance;
         gameController.GameCanvas = this;
@@ -95,7 +104,8 @@ public class GameCanvas : MonoBehaviour
         coinAmountTxt.text = GameController.CoinAmount + "";
         gameController.MoneyAmountChanged += OnMoneyAmountChanged;
 
-        orderUI.SetOrderUIBasedOnOrder(gameController.orders[0]);
+        orderUIs[0].SetOrderUIBasedOnOrder(gameController.ActiveOrders[0]);
+        orderUIs[1].SetOrderUIBasedOnOrder(gameController.ActiveOrders[1]);
         //        gameController.MoneyAmountChangedInc += OnMoneyAmountChangedIncrementally;
     }
 

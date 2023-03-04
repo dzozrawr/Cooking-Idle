@@ -5,6 +5,8 @@ using PlayerNamespace;
 
 public class GameController : MonoBehaviour
 {
+    public static int curWaveInd = 0;
+
     private static GameController instance = null;
     public static GameController Instance { get => instance; }
 
@@ -22,12 +24,17 @@ public class GameController : MonoBehaviour
 
     private static int coinAmount;
 
-    private Order activeOrder=null; //this value should be changed when order is finished
+    private Order activeOrder;
+
+    private Order[] activeOrders=new Order[2]; //this value should be changed when order is finished
 
     private GameCanvas gameCanvas = null;
+
+    private int orderInd = 0;
     public static int CoinAmount { get => coinAmount; set => coinAmount = value; }
     public GameCanvas GameCanvas { get => gameCanvas; set => gameCanvas = value; }
     public Order ActiveOrder { get => activeOrder; set => activeOrder = value; }
+    public Order[] ActiveOrders { get => activeOrders; set => activeOrders = value; }
 
     private void Awake()
     {
@@ -37,7 +44,8 @@ public class GameController : MonoBehaviour
             return;
         }
         instance = this;
-        activeOrder=orders[0];
+        activeOrders[0] = GetNextOrder();
+        activeOrders[1] = GetNextOrder();
     }
 
 
@@ -50,6 +58,27 @@ public class GameController : MonoBehaviour
         }
     }
 #endif
+
+    public Order GetNextOrder()
+    {
+        if(orderInd>= orderWaves[curWaveInd].orders.Count)
+        {
+            Debug.Log("Orders done in wave "+curWaveInd);
+            return null;
+        }
+        
+        Order order = null;
+        foreach (Order o in orders)
+        {
+            if(o.orderID== orderWaves[curWaveInd].orders[orderInd])
+            {
+                order = o;
+                orderInd++;
+                break;
+            }
+        }
+        return order;
+    }
     public bool DoesPlateMatchOrder(Plate plate) //maybe this could return the order index so we can remove it
     {
         if (orders[0].DoesPlateMatchesTheOrder(plate))
