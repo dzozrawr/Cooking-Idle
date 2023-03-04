@@ -37,6 +37,7 @@ public abstract class UpgradeButton : MonoBehaviour
             {
                 GameController.Instance.AddMoney(-price);
                 UpgradeEffect();
+               // LevelUpdate();
                 //FryingPan.timeToCook = upgradeValuesForLevels[level];
                 if ((level + 1) < pricesForLevels.Count)
                 {
@@ -50,15 +51,36 @@ public abstract class UpgradeButton : MonoBehaviour
                     SetMaxLevelDisable();
                     //also grey out the button
                 }
+                LevelUpdate();
             }
         }
     }
-    private void SetMaxLevelDisable()
+    protected void SetMaxLevelDisable()
     {
         moneyImg.gameObject.SetActive(false);
         //moneyImg.enabled = false;
         moneyText.text = "MAX";
         button.GetComponent<Image>().color = disabledButtonColor;
     }
+
+    protected void SetLevel(int level)
+    {
+       // if (level == 0) return;
+
+        UpgradeEffect();
+        if ((level + 1) < pricesForLevels.Count)
+        {
+            price = pricesForLevels[level + 1];
+            moneyText.text = price + "";
+        }
+        this.level++;
+
+        if (this.level >= maxLevel)
+        {
+            SetMaxLevelDisable();
+            //also grey out the button
+        }
+    }
     protected abstract void UpgradeEffect();
+    protected abstract void LevelUpdate();
 }

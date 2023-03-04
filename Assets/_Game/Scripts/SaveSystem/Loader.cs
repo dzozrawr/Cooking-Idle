@@ -17,16 +17,25 @@ public class Loader : MonoBehaviour
         {
            // levelToLoad = saveData.level;
             GameController.CoinAmount=saveData.money;
+            PanUpgradeButton.levelOverride = saveData.panUpgradeLevel;
+            PotUgradeButton.levelOverride = saveData.potUpgradeLevel;
+            CuttingBoardUpgradeButton.levelOverride = saveData.cuttingBoardUpgradeLevel;
+            DeepFrierUpgradeButton.levelOverride = saveData.deepFrierUpgradeLevel;
+            WalkingSpeedUpgradeButton.levelOverride = saveData.walkingUpgradeLevel;
            // ShopController.shopItemInfos=saveData.shopItemInfos;
 
            /*  WindmillScript.Lvl=saveData.windmillLevel;
             MarketScript.Lvl=saveData.marketLevel; */
         }
-/*        else
+        else
         {
-            levelToLoad = SceneManager.GetActiveScene().buildIndex + 1;
-           // GameController.missionID = 1;
-        }*/
+            PanUpgradeButton.levelOverride = 0;
+            PotUgradeButton.levelOverride = 0;
+            CuttingBoardUpgradeButton.levelOverride = 0;
+            DeepFrierUpgradeButton.levelOverride = 0;
+            WalkingSpeedUpgradeButton.levelOverride = 0;
+            // GameController.missionID = 1;
+        }
         SceneManager.LoadScene(levelToLoad);
     }
 
