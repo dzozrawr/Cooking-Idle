@@ -27,7 +27,7 @@ public class Loader : MonoBehaviour
             levelToLoad = SceneManager.GetActiveScene().buildIndex + 1;
            // GameController.missionID = 1;
         }*/
-
         SceneManager.LoadScene(levelToLoad);
     }
+
 }
