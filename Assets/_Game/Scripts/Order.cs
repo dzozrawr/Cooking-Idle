@@ -7,6 +7,11 @@ using UnityEngine;
 [Serializable]
 public class Order 
 {
+    public enum OrderID
+    {
+        BurgerFries, CarrotStew, BroccoliStew, SteakRiceBroccoli
+    }
+    public OrderID orderID;
     public Sprite orderSprite=null;
     public string foodName = null;
     public List<IngredientType> ingredientList = null;

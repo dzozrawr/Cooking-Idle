@@ -46,12 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orders:
-  - orderSprite: {fileID: 0}
-    foodName: 
-    ingredientList: 0000000001000000
-  - orderSprite: {fileID: 0}
-    foodName: 
-    ingredientList: 0000000000000000
+  - orderID: 0
+    orderSprite: {fileID: 21300000, guid: 696f516041c501643b7488fa289b6131, type: 3}
+    foodName: Burger and fries
+    ingredientList: 02000000030000000e000000
+  - orderID: 1
+    orderSprite: {fileID: 21300000, guid: 66c452fa727de224490ec85c296116b9, type: 3}
+    foodName: Carrot stew
+    ingredientList: 0900000001000000
+  - orderID: 2
+    orderSprite: {fileID: 21300000, guid: 9f189f7382cea7a4aa9df6ebc4a7c62a, type: 3}
+    foodName: Broccoli stew
+    ingredientList: 0500000001000000
   playerController: {fileID: 0}
   ingredientSpriteHolder: {fileID: 4171036368795895596}
 --- !u!114 &4171036368795895596
@@ -83,3 +89,6 @@ MonoBehaviour:
   pans: []
   cuttingBoards: []
   deepFriers: []
+  plate: {fileID: 0}
+  finishSpot: {fileID: 0}
+  recycleBin: {fileID: 0}

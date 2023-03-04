@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
 
     public List<Order> orders = null;
 
+    public List<OrderWave> orderWaves = null;
+
     public PlayerController playerController = null;
 
     public IngredientSpriteHolder ingredientSpriteHolder = null;
