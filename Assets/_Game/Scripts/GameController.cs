@@ -82,4 +82,23 @@ public class GameController : MonoBehaviour
         coinAmount += moneyAmountToAdd;
         MoneyAmountChanged?.Invoke();
     }
+
+#if UNITY_EDITOR
+    private void OnApplicationQuit()
+    {
+        SaveData saveData = new SaveData();
+        SaveSystem.SaveGameXML(saveData);
+    }
+#endif
+
+#if !UNITY_EDITOR
+    private void OnApplicationFocus(bool focusStatus)
+    {
+        if (!focusStatus)
+        {
+            SaveData saveData = new SaveData();
+            SaveSystem.SaveGameXML(saveData);
+        }
+    }
+#endif
 }
