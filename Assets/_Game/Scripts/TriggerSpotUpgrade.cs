@@ -64,7 +64,7 @@ public class TriggerSpotUpgrade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
+       // Debug.Log("OnTriggerEnter");
         if (other.gameObject == playerController.gameObject)
         {
 

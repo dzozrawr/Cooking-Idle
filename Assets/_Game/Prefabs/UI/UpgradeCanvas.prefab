@@ -272,7 +272,11 @@ PrefabInstance:
       objectReference: {fileID: -325776238125573412, guid: 935bc0ef2606c124280980fdfa59b8b5, type: 2}
     - target: {fileID: 2094164383459495877, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
       propertyPath: m_Name
-      value: UpgradeElement cutting board (2)
+      value: UpgradeElement walking speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440943725219913706, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+      propertyPath: upgradeValuesForLevels.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3916681615684616352, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
       propertyPath: m_SizeDelta.x
@@ -426,13 +430,62 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3440943725219913706, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
 --- !u!224 &7275969648647372707 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8247198152313791604, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
   m_PrefabInstance: {fileID: 1624252309356518359}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4394135957017530582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3058396602596100865, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 1624252309356518359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6367518839323026400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5681141926552238135, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 1624252309356518359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8419180843934075550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7087663609886232905, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 1624252309356518359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6939370225792245599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394135957017530582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bf633ee1fc55346a0be2cb9c1c1ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 6367518839323026400}
+  moneyImg: {fileID: 8419180843934075550}
+  disabledButtonColor: {r: 0.67058825, g: 0.64705884, b: 0.64705884, a: 1}
+  pricesForLevels: 0f0000001e0000003c00000064000000
+  upgradeValuesForLevels:
+  - 3
+  - 3.33
+  - 3.5
+  - 4
 --- !u!1001 &2318491845534102682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -616,13 +669,61 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3440943725219913706, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
 --- !u!224 &5935496964246917358 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8247198152313791604, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
   m_PrefabInstance: {fileID: 2318491845534102682}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &746871367549566875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3058396602596100865, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 2318491845534102682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7997135611247611053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5681141926552238135, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 2318491845534102682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4787467746856691155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7087663609886232905, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 2318491845534102682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5409922960166608679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746871367549566875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76138408c1a5c4e4c8cfe87e1eb3eb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 7997135611247611053}
+  moneyImg: {fileID: 4787467746856691155}
+  disabledButtonColor: {r: 0.67058825, g: 0.64705884, b: 0.64705884, a: 1}
+  pricesForLevels: 0a0000001400000028000000
+  upgradeValuesForLevels:
+  - 6
+  - 3
+  - 2
 --- !u!1001 &7126749445537984777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -806,13 +907,61 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3440943725219913706, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
 --- !u!224 &1194759960885138813 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8247198152313791604, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
   m_PrefabInstance: {fileID: 7126749445537984777}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3184102832210544958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5681141926552238135, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 7126749445537984777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &52702190140891200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7087663609886232905, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 7126749445537984777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5230604812080413192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3058396602596100865, guid: 775f6ac9868d2dd4995f60c8673f2d23, type: 3}
+  m_PrefabInstance: {fileID: 7126749445537984777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1541952467435100453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5230604812080413192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca16c052b8f5d874f9207c807fe1dae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 3184102832210544958}
+  moneyImg: {fileID: 52702190140891200}
+  disabledButtonColor: {r: 0.67058825, g: 0.64705884, b: 0.64705884, a: 1}
+  pricesForLevels: 070000000d00000022000000
+  upgradeValuesForLevels:
+  - 5
+  - 3
+  - 1
 --- !u!1001 &7259993671036080925
 PrefabInstance:
   m_ObjectHideFlags: 0

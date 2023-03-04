@@ -14,12 +14,14 @@ namespace PlayerNamespace
     public class PlayerController : MonoBehaviour
     {
 
+        public static float movementSpeed = 2.66f;
+
         public CharacterController characterController = null;
         public Joystick joystick = null;
 
         public GameObject playerModel = null;
 
-        public float movementSpeed = 1f;
+        //public float movementSpeed = 1f;
 
         public Canvas joystickCanvas = null;
 

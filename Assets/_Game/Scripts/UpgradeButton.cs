@@ -55,7 +55,8 @@ public abstract class UpgradeButton : MonoBehaviour
     }
     private void SetMaxLevelDisable()
     {
-        moneyImg.enabled = false;
+        moneyImg.gameObject.SetActive(false);
+        //moneyImg.enabled = false;
         moneyText.text = "MAX";
         button.GetComponent<Image>().color = disabledButtonColor;
     }
