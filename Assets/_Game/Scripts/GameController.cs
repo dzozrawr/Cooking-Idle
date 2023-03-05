@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
     }
     public bool DoesPlateMatchOrder(Plate plate) //maybe this could return the order index so we can remove it
     {
-        if (orders[0].DoesPlateMatchesTheOrder(plate))
+        if (orders[0].DoesPlateMatchesTheOrder(plate, null))
         {
             orders.RemoveAt(0);
             if (orders.Count == 0)
@@ -98,13 +98,32 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < orders.Count; i++)
         {
-            if (orders[i].DoesPlateMatchesTheOrder(plate))
+            if (orders[i].DoesPlateMatchesTheOrder(plate,null))
             {
                 orders.RemoveAt(i);
                 gameCanvas.orderUI.SetOrderUIBasedOnOrder(orders[i]);
                 return true;
             }
         }
+        return false;
+    }
+
+    public bool DoesPlateMatchActiveOrders(Plate plate) //maybe this could return the order index so we can remove it
+    {
+        for (int i = 0; i < activeOrders.Length; i++)
+        {
+            if (activeOrders[i] == null) continue;
+            //if activeOrders[i]==null
+            if (activeOrders[i].DoesPlateMatchesTheOrder(plate,gameCanvas.orderUIs[i]))
+            {
+                activeOrders[i] = GetNextOrder();
+                gameCanvas.CorrectOrderInd = i;
+               // gameCanvas.orderUIs[i].SetOrderUIBasedOnOrder(activeOrders[i]);
+               // gameCanvas.orderUI.SetOrderUIBasedOnOrder(activeOrders[i]);
+                return true;
+            }
+        }
+        //next wave i guess, or game over
         return false;
     }
 

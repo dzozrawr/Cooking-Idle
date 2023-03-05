@@ -24,9 +24,11 @@ public class GameCanvas : MonoBehaviour
 
         private bool isOrderSet = false;
 
+
         public void SetOrderUIBasedOnOrder(Order order)
         {
             if (order == null) orderParent.SetActive(false);
+
             IngredientSpriteHolder ingredientSpriteHolder = GameController.Instance.ingredientSpriteHolder;
             foodImg.sprite = order.orderSprite;
             foodNameText.text = order.foodName;
@@ -66,7 +68,11 @@ public class GameCanvas : MonoBehaviour
                 }
             }
 
-            if (isAnyIncorrect) GameController.Instance.GameCanvas.Invoke(nameof(HideOrderCorrectness), 1.5f);
+            if (isAnyIncorrect)
+            {
+                GameController.Instance.GameCanvas.Invoke(nameof(HideOrderCorrectness), 1.5f);
+            }
+
         }
 
         public void HideOrderCorrectness()
@@ -85,16 +91,20 @@ public class GameCanvas : MonoBehaviour
     public List<OrderUI> orderUIs = null;
     public Transform orderHidePlace = null;
     private Vector3 orderDefaultPosition;
+    private int correctOrderInd = -1;
 
 
     private GameController gameController = null;
+
+    public int CorrectOrderInd { get => correctOrderInd; set => correctOrderInd = value; }
+
     //    private Coroutine addMoneyInSequenceCoroutine = null;
     // Start is called before the first frame update
     void Start()
     {
         foreach (OrderUI orderUI in orderUIs)
         {
-            orderUI.orderUIDefaultPos= orderUI.orderParent.transform.position;
+            orderUI.orderUIDefaultPos = orderUI.orderParent.transform.position;
         }
         //orderUI.orderUIDefaultPos
         orderDefaultPosition = orderUI.orderParent.transform.position;
@@ -116,14 +126,40 @@ public class GameCanvas : MonoBehaviour
 
     public void ChangeToNextOrder()
     {
-        orderUI.orderParent.transform.DOMove(orderHidePlace.position, 0.33f).OnComplete(() =>
+        //Debug.Log("ChangeToNextOrder()");
+        //orderUIs
+        if (correctOrderInd != -1)
         {
-            orderUI.SetOrderUIBasedOnOrder(gameController.orders[0]);
-            orderUI.orderParent.transform.DOMove(orderDefaultPosition, 0.33f).OnComplete(() =>
-            {
-                gameController.NewOrderAppeared?.Invoke();
-            });
-        });
+            Debug.Log("if (correctOrderInd != -1)");
+            orderUIs[correctOrderInd].orderUIDefaultPos = orderUIs[correctOrderInd].orderParent.transform.position;
+            orderUIs[correctOrderInd].orderParent.transform.DOMoveX(orderHidePlace.position.x, 0.33f).OnComplete(() =>
+                        {
+                            orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
+                            orderUIs[correctOrderInd].orderParent.transform.DOMoveX(orderUIs[correctOrderInd].orderUIDefaultPos.x, 0.33f).OnComplete(() =>
+                            {
+                                Debug.Log("deepest tween");
+                                gameController.NewOrderAppeared?.Invoke();
+                                correctOrderInd = -1;
+                            });
+                        });
+        }
+        /*        orderUI.orderParent.transform.DOMove(orderHidePlace.position, 0.33f).OnComplete(() =>
+                {
+                    orderUI.SetOrderUIBasedOnOrder(gameController.orders[0]);
+                    orderUI.orderParent.transform.DOMove(orderDefaultPosition, 0.33f).OnComplete(() =>
+                    {
+                        gameController.NewOrderAppeared?.Invoke();
+                        correctOrderInd = -1;
+                    });
+                });*/
+        /*        orderUI.orderParent.transform.DOMove(orderHidePlace.position, 0.33f).OnComplete(() =>
+                {
+                    orderUI.SetOrderUIBasedOnOrder(gameController.orders[0]);
+                    orderUI.orderParent.transform.DOMove(orderDefaultPosition, 0.33f).OnComplete(() =>
+                    {
+                        gameController.NewOrderAppeared?.Invoke();
+                    });
+                });*/
     }
 
     public void OnMoneyAmountChanged()

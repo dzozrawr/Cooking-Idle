@@ -35,7 +35,7 @@ public class FinishSpot : MonoBehaviour
                     plate = (Plate)playerController.HeldObject;
 
                     //  doesPlateMatchOrder = gameController.DoesPlateMatchAnyOrder(plate);
-                    doesPlateMatchOrder = gameController.DoesPlateMatchOrder(plate);
+                    doesPlateMatchOrder = gameController.DoesPlateMatchActiveOrders(plate);
 
                     plate.transform.position = transform.position;
                     plate.transform.SetParent(null);
