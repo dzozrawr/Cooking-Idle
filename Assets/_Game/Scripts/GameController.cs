@@ -50,13 +50,14 @@ public class GameController : MonoBehaviour
         }
         instance = this;
 
+        activeOrders[0] = GetNextOrder();
+        activeOrders[1] = GetNextOrder();
     }
 
     private void Start()
     {
         //gameCanvas=GameCanvas.insta
-        activeOrders[0] = GetNextOrder();
-        activeOrders[1] = GetNextOrder();
+
         if (curWaveInd > 0)
         {
             gameCanvas.SetDayNumber(curWaveInd + 1);

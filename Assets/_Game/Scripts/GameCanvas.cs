@@ -146,13 +146,20 @@ public class GameCanvas : MonoBehaviour
                                 gameController.GoToNextWave();
                                 Debug.Log("gameController.GoToNextWave();");
                                 orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
+
                                 return;
                             }
+                            if (gameController.ActiveOrders[correctOrderInd] == null)
+                            {
+                                gameController.NewOrderAppeared?.Invoke();
+                            }
+
                             orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
 
                             orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[correctOrderInd].orderUIDefaultPosX, 0.33f).OnComplete(() =>
                             {
                                 Debug.Log("deepest tween");
+                                if(correctOrderInd==1)
                                 gameController.NewOrderAppeared?.Invoke();
                                 correctOrderInd = -1;
                             });

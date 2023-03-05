@@ -145,6 +145,7 @@ public class Tutorial : MonoBehaviour
             }
 
             ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;
+            Debug.Log("ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;");
             ingrIndex = (ingrIndex + 1) % ingrN;
 
 
@@ -210,21 +211,27 @@ public class Tutorial : MonoBehaviour
     }
     private void InitTutorial()
     {
+        ResetTutorial();
         if (plate == null)
         {
             plate = GameObject.FindObjectOfType<Plate>();
         }
 
-        ingredientList = gameController.ActiveOrders[0].ingredientList;
+        int activeOrderInd = 0;
+        if (gameController.ActiveOrders[activeOrderInd] == null) activeOrderInd = 1;
+        ingredientList = gameController.ActiveOrders[activeOrderInd].ingredientList;
         foreach (IngredientType it in ingredientList)
         {
             IngrTutorial ingrTutorial = new IngrTutorial();
             ingrTutorial.type = it;
             ingrTutorials.Add(ingrTutorial);
+            ingrTutorial.phase = IngredientPhase.PickUp;
+
             //Debug.Log(it);
         }
 
         ingrN = ingrTutorials.Count;
+
 
         //Debug.Log(ingrN);
 
