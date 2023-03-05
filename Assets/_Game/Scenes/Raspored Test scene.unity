@@ -22071,6 +22071,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4746358107170741104, guid: cd8797fe6c0a3fd45adc754b0a2eaacb, type: 3}
+      propertyPath: m_Size.z
+      value: 33.71501
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746358107170741104, guid: cd8797fe6c0a3fd45adc754b0a2eaacb, type: 3}
+      propertyPath: m_Center.y
+      value: -4.426067e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746358107170741104, guid: cd8797fe6c0a3fd45adc754b0a2eaacb, type: 3}
+      propertyPath: m_Center.z
+      value: -16.065775
+      objectReference: {fileID: 0}
     - target: {fileID: 4746358107170741105, guid: cd8797fe6c0a3fd45adc754b0a2eaacb, type: 3}
       propertyPath: objectToUnlock
       value: 
