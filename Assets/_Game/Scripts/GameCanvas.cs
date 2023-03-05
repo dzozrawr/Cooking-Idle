@@ -70,7 +70,7 @@ public class GameCanvas : MonoBehaviour
 
             if (isAnyIncorrect)
             {
-                GameController.Instance.GameCanvas.Invoke(nameof(HideOrderCorrectness), 1.5f);
+                GameController.Instance.gameCanvas.Invoke(nameof(HideOrderCorrectness), 1.5f);
             }
 
         }
@@ -115,7 +115,7 @@ public class GameCanvas : MonoBehaviour
         //orderUI.orderUIDefaultPos
         orderDefaultPosition = orderUI.orderParent.transform.position;
         gameController = GameController.Instance;
-        gameController.GameCanvas = this;
+       // gameController.GameCanvas = this;
 
         coinAmountTxt.text = GameController.CoinAmount + "";
         gameController.MoneyAmountChanged += OnMoneyAmountChanged;
@@ -199,9 +199,25 @@ public class GameCanvas : MonoBehaviour
             correctOrderInd = -1;
         });
     }
-    public void UpdateDay(int dayNumber)
+    public void UpdateDayForNextWave(int dayNumber)
+    {
+        Vector3 dayTextDefaultScale = dayText.transform.localScale;
+        dayText.transform.DOScale(dayTextDefaultScale * 1.5f, 0.75f).OnComplete(() =>
+          {
+              dayText.text = "Day " + dayNumber;
+              dayText.transform.DOScale(dayTextDefaultScale, 0.75f).OnComplete(() =>
+              {
+                  InitOrderUIsForNextWave();
+              });
+          });
+
+        //maybe add an animation
+    }
+
+    public void SetDayNumber(int dayNumber)
     {
         dayText.text = "Day " + dayNumber;
+
         //maybe add an animation
     }
 

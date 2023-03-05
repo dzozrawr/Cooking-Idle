@@ -124,7 +124,7 @@ MonoBehaviour:
     - {fileID: 4125092264779887021}
     - {fileID: 5230963173923505821}
     - {fileID: 4786123628174762532}
-    orderUIDefaultPos: {x: 0, y: 0, z: 0}
+    orderUIDefaultPosX: 0
   orderUIs:
   - orderParent: {fileID: 5114040390891427853}
     foodImg: {fileID: 3481822655673923056}
@@ -133,7 +133,7 @@ MonoBehaviour:
     - {fileID: 4125092264779887021}
     - {fileID: 5230963173923505821}
     - {fileID: 4786123628174762532}
-    orderUIDefaultPos: {x: 0, y: 0, z: 0}
+    orderUIDefaultPosX: 0
   - orderParent: {fileID: 5839900660453191254}
     foodImg: {fileID: 2855894953675785131}
     foodNameText: {fileID: 609282328719423340}
@@ -141,7 +141,7 @@ MonoBehaviour:
     - {fileID: 3372214915826599926}
     - {fileID: 6875830448340644038}
     - {fileID: 6167816040727254143}
-    orderUIDefaultPos: {x: 0, y: 0, z: 0}
+    orderUIDefaultPosX: 0
   orderHidePlace: {fileID: 5682263806208649531}
   dayText: {fileID: 753218292882024992}
 --- !u!1 &2943441377207108500

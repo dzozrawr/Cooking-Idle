@@ -27,6 +27,9 @@ public class SaveData
     [DataMember]
     public int walkingUpgradeLevel;
 
+    [DataMember]
+    public int curOrderWaveInd;
+
     public SaveData(int _level)
     {
        // level = _level;
@@ -36,6 +39,7 @@ public class SaveData
         cuttingBoardUpgradeLevel = CuttingBoardUpgradeButton.levelOverride;
         deepFrierUpgradeLevel = DeepFrierUpgradeButton.levelOverride;
         walkingUpgradeLevel = WalkingSpeedUpgradeButton.levelOverride;
+        curOrderWaveInd = GameController.curWaveInd;
     }
 
     public SaveData()
@@ -47,6 +51,7 @@ public class SaveData
         cuttingBoardUpgradeLevel = CuttingBoardUpgradeButton.levelOverride;
         deepFrierUpgradeLevel = DeepFrierUpgradeButton.levelOverride;
         walkingUpgradeLevel = WalkingSpeedUpgradeButton.levelOverride;
+        curOrderWaveInd = GameController.curWaveInd;
     }
 
 }

@@ -9,7 +9,7 @@ public class Order
 {
     public enum OrderID
     {
-        BurgerFries, CarrotStew, BroccoliStew, SteakRiceBroccoli
+        BurgerFries, CarrotStew, BroccoliStew, SteakRiceBroccoli, SteakLettuceBroccoli
     }
     public OrderID orderID;
     public Sprite orderSprite = null;

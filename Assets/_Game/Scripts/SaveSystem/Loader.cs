@@ -22,10 +22,11 @@ public class Loader : MonoBehaviour
             CuttingBoardUpgradeButton.levelOverride = saveData.cuttingBoardUpgradeLevel;
             DeepFrierUpgradeButton.levelOverride = saveData.deepFrierUpgradeLevel;
             WalkingSpeedUpgradeButton.levelOverride = saveData.walkingUpgradeLevel;
-           // ShopController.shopItemInfos=saveData.shopItemInfos;
+            GameController.curWaveInd = saveData.curOrderWaveInd;
+            // ShopController.shopItemInfos=saveData.shopItemInfos;
 
-           /*  WindmillScript.Lvl=saveData.windmillLevel;
-            MarketScript.Lvl=saveData.marketLevel; */
+            /*  WindmillScript.Lvl=saveData.windmillLevel;
+             MarketScript.Lvl=saveData.marketLevel; */
         }
         else
         {
@@ -34,6 +35,7 @@ public class Loader : MonoBehaviour
             CuttingBoardUpgradeButton.levelOverride = 0;
             DeepFrierUpgradeButton.levelOverride = 0;
             WalkingSpeedUpgradeButton.levelOverride = 0;
+            GameController.curWaveInd = 0;
             // GameController.missionID = 1;
         }
         SceneManager.LoadScene(levelToLoad);

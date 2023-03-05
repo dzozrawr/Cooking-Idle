@@ -22,19 +22,21 @@ public class GameController : MonoBehaviour
 
     public IngredientSpriteHolder ingredientSpriteHolder = null;
 
+    public GameCanvas gameCanvas = null;
+
     private static int coinAmount;
 
     private Order activeOrder;
 
     [SerializeReference] private Order[] activeOrders = new Order[2]; //this value should be changed when order is finished
 
-    private GameCanvas gameCanvas = null;
+
 
     private int orderInd = 0;
 
     private bool shouldStartNewWave = false;
     public static int CoinAmount { get => coinAmount; set => coinAmount = value; }
-    public GameCanvas GameCanvas { get => gameCanvas; set => gameCanvas = value; }
+   // public GameCanvas GameCanvas { get => gameCanvas; set => gameCanvas = value; }
     public Order ActiveOrder { get => activeOrder; set => activeOrder = value; }
     public Order[] ActiveOrders { get => activeOrders; set => activeOrders = value; }
     public bool ShouldStartNewWave { get => shouldStartNewWave; set => shouldStartNewWave = value; }
@@ -47,8 +49,18 @@ public class GameController : MonoBehaviour
             return;
         }
         instance = this;
+
+    }
+
+    private void Start()
+    {
+        //gameCanvas=GameCanvas.insta
         activeOrders[0] = GetNextOrder();
         activeOrders[1] = GetNextOrder();
+        if (curWaveInd > 0)
+        {
+            gameCanvas.SetDayNumber(curWaveInd + 1);
+        }
     }
 
 
@@ -143,6 +155,7 @@ public class GameController : MonoBehaviour
 
     public void GoToNextWave()
     {
+        shouldStartNewWave = false;
         curWaveInd++;
         orderInd = 0;
 
@@ -156,8 +169,9 @@ public class GameController : MonoBehaviour
         activeOrders[1] = GetNextOrder();
 
         //update the UI
-        gameCanvas.UpdateDay(curWaveInd + 1);
-        gameCanvas.InitOrderUIsForNextWave();
+
+        gameCanvas.UpdateDayForNextWave(curWaveInd + 1);   //gameCanvas.InitOrderUIsForNextWave(); happens in the UpdateDay()
+        //gameCanvas.InitOrderUIsForNextWave();
     }
 
     public void AddMoney(int moneyAmountToAdd)

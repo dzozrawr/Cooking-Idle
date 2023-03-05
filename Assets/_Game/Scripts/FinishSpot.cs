@@ -64,7 +64,7 @@ public class FinishSpot : MonoBehaviour
             coinUIEarnScript.PlayCoinEarnAnimation(5);
             customerManager.FirstCustomer.PlayPosOrNegParticle(true);
             customerManager.OrderDone();
-            gameController.GameCanvas.ChangeToNextOrder();
+            gameController.gameCanvas.ChangeToNextOrder();
             //gameController.GameCanvas.orderUI.SetOrderUIBasedOnOrder(gameController.orders[0]);
             //  Debug.Log("Plate matches the order!");
         }

@@ -21449,6 +21449,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff977d0898121204d93634be608991df, type: 3}
+--- !u!114 &2753475914912908038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6675175357321569474, guid: ff977d0898121204d93634be608991df, type: 3}
+  m_PrefabInstance: {fileID: 2753475914912908037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e98ebd7b0c1b498de21763aa6dd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3000206404559800656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22820,36 +22831,56 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: gameCanvas
+      value: 
+      objectReference: {fileID: 2753475914912908038}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1838197736}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orders.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orderWaves.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orders.Array.data[3].orderID
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orders.Array.data[4].orderID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orders.Array.data[3].foodName
+      value: Steak and rice
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orders.Array.data[4].foodName
       value: Steak and veggies
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orders.Array.data[3].orderSprite
       value: 
+      objectReference: {fileID: 21300000, guid: 678f8abe9794a104a96f3dc61647358f, type: 3}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orders.Array.data[4].orderSprite
+      value: 
       objectReference: {fileID: 21300000, guid: 625fd6412faa45240ad2370f4400a420, type: 3}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orderWaves.Array.data[0].orders.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orderWaves.Array.data[1].orders.Array.size
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orderWaves.Array.data[2].orders.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orderWaves.Array.data[0].orders.Array.data[0]
@@ -22884,7 +22915,19 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orderWaves.Array.data[2].orders.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orderWaves.Array.data[2].orders.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orders.Array.data[3].ingredientList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orders.Array.data[4].ingredientList.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
@@ -22905,6 +22948,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orders.Array.data[3].ingredientList.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orders.Array.data[4].ingredientList.Array.data[0]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orders.Array.data[4].ingredientList.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: orders.Array.data[4].ingredientList.Array.data[2]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7225395369027233027, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
