@@ -23,6 +23,7 @@ public class Loader : MonoBehaviour
             DeepFrierUpgradeButton.levelOverride = saveData.deepFrierUpgradeLevel;
             WalkingSpeedUpgradeButton.levelOverride = saveData.walkingUpgradeLevel;
             GameController.curWaveInd = saveData.curOrderWaveInd;
+            UnlockablesManager.unlockableStates = saveData.unlockablesStates;
             // ShopController.shopItemInfos=saveData.shopItemInfos;
 
             /*  WindmillScript.Lvl=saveData.windmillLevel;
@@ -36,6 +37,7 @@ public class Loader : MonoBehaviour
             DeepFrierUpgradeButton.levelOverride = 0;
             WalkingSpeedUpgradeButton.levelOverride = 0;
             GameController.curWaveInd = 0;
+            UnlockablesManager.unlockableStates = null;
             // GameController.missionID = 1;
         }
         SceneManager.LoadScene(levelToLoad);

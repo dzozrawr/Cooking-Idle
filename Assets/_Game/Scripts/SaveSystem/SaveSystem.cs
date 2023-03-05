@@ -125,7 +125,6 @@ public static class SaveSystem
         else
         {
             Debug.LogError("Save file not found in " + fullSavePath);
-            Debug.LogError("Save file not found in " + fullSavePath);
 
 
 
