@@ -26,15 +26,18 @@ public class GameController : MonoBehaviour
 
     private Order activeOrder;
 
-    private Order[] activeOrders=new Order[2]; //this value should be changed when order is finished
+    [SerializeReference] private Order[] activeOrders = new Order[2]; //this value should be changed when order is finished
 
     private GameCanvas gameCanvas = null;
 
     private int orderInd = 0;
+
+    private bool shouldStartNewWave = false;
     public static int CoinAmount { get => coinAmount; set => coinAmount = value; }
     public GameCanvas GameCanvas { get => gameCanvas; set => gameCanvas = value; }
     public Order ActiveOrder { get => activeOrder; set => activeOrder = value; }
     public Order[] ActiveOrders { get => activeOrders; set => activeOrders = value; }
+    public bool ShouldStartNewWave { get => shouldStartNewWave; set => shouldStartNewWave = value; }
 
     private void Awake()
     {
@@ -61,16 +64,16 @@ public class GameController : MonoBehaviour
 
     public Order GetNextOrder()
     {
-        if(orderInd>= orderWaves[curWaveInd].orders.Count)
+        if (orderInd >= orderWaves[curWaveInd].orders.Count)
         {
-            Debug.Log("Orders done in wave "+curWaveInd);
+            Debug.Log("Orders done in wave " + curWaveInd);
             return null;
         }
-        
+
         Order order = null;
         foreach (Order o in orders)
         {
-            if(o.orderID== orderWaves[curWaveInd].orders[orderInd])
+            if (o.orderID == orderWaves[curWaveInd].orders[orderInd])
             {
                 order = o;
                 orderInd++;
@@ -88,8 +91,9 @@ public class GameController : MonoBehaviour
             {
                 Debug.Log("Level over");
                 return true;
-            } else activeOrder=orders[0];
-          //  gameCanvas.orderUI.SetOrderUIBasedOnOrder(orders[0]);            
+            }
+            else activeOrder = orders[0];
+            //  gameCanvas.orderUI.SetOrderUIBasedOnOrder(orders[0]);            
             return true;
         }
         return false;
@@ -98,7 +102,7 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < orders.Count; i++)
         {
-            if (orders[i].DoesPlateMatchesTheOrder(plate,null))
+            if (orders[i].DoesPlateMatchesTheOrder(plate, null))
             {
                 orders.RemoveAt(i);
                 gameCanvas.orderUI.SetOrderUIBasedOnOrder(orders[i]);
@@ -112,19 +116,48 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < activeOrders.Length; i++)
         {
-            if (activeOrders[i] == null) continue;
+            if (activeOrders[i] == null)
+            {
+                Debug.Log("Order " + i + " is null.");
+                continue;
+            }
             //if activeOrders[i]==null
-            if (activeOrders[i].DoesPlateMatchesTheOrder(plate,gameCanvas.orderUIs[i]))
+            if (activeOrders[i].DoesPlateMatchesTheOrder(plate, gameCanvas.orderUIs[i]))
             {
                 activeOrders[i] = GetNextOrder();
                 gameCanvas.CorrectOrderInd = i;
-               // gameCanvas.orderUIs[i].SetOrderUIBasedOnOrder(activeOrders[i]);
-               // gameCanvas.orderUI.SetOrderUIBasedOnOrder(activeOrders[i]);
+
+                if ((activeOrders[0] == null) && (activeOrders[1] == null))
+                {
+                    Debug.Log("Both active orders are null");
+                    ShouldStartNewWave = true;
+                }
+                // gameCanvas.orderUIs[i].SetOrderUIBasedOnOrder(activeOrders[i]);
+                // gameCanvas.orderUI.SetOrderUIBasedOnOrder(activeOrders[i]);
                 return true;
             }
         }
         //next wave i guess, or game over
         return false;
+    }
+
+    public void GoToNextWave()
+    {
+        curWaveInd++;
+        orderInd = 0;
+
+        if (curWaveInd >= orderWaves.Count)
+        {
+            Debug.Log("No more waves, can't move on.");
+            return;
+        }
+
+        activeOrders[0] = GetNextOrder();
+        activeOrders[1] = GetNextOrder();
+
+        //update the UI
+        gameCanvas.UpdateDay(curWaveInd + 1);
+        gameCanvas.InitOrderUIsForNextWave();
     }
 
     public void AddMoney(int moneyAmountToAdd)

@@ -18,7 +18,7 @@ public class GameCanvas : MonoBehaviour
         public TMP_Text foodNameText = null;
         public IngredientUI[] ingredientsUI;
 
-        public Vector3 orderUIDefaultPos;
+        public float orderUIDefaultPosX;
         //   public Image[] ingredientsImg = new Image[3];
         //private Ingredients.IngredientType[] ingredientsTypes = new IngredientType[3];
 
@@ -27,7 +27,7 @@ public class GameCanvas : MonoBehaviour
 
         public void SetOrderUIBasedOnOrder(Order order)
         {
-            if (order == null) orderParent.SetActive(false);
+            if (order == null) ToggleShow(false);
 
             IngredientSpriteHolder ingredientSpriteHolder = GameController.Instance.ingredientSpriteHolder;
             foodImg.sprite = order.orderSprite;
@@ -85,11 +85,17 @@ public class GameCanvas : MonoBehaviour
                 }
             }
         }
+
+        public void ToggleShow(bool shouldShow)
+        {
+            if (shouldShow) orderParent.GetComponent<CanvasGroup>().alpha = 1; else orderParent.GetComponent<CanvasGroup>().alpha = 0;
+        }
     }
     public TMP_Text coinAmountTxt = null;
     public OrderUI orderUI = null;
     public List<OrderUI> orderUIs = null;
     public Transform orderHidePlace = null;
+    public TMP_Text dayText = null;
     private Vector3 orderDefaultPosition;
     private int correctOrderInd = -1;
 
@@ -104,7 +110,7 @@ public class GameCanvas : MonoBehaviour
     {
         foreach (OrderUI orderUI in orderUIs)
         {
-            orderUI.orderUIDefaultPos = orderUI.orderParent.transform.position;
+            orderUI.orderUIDefaultPosX = orderUI.orderParent.transform.position.x;
         }
         //orderUI.orderUIDefaultPos
         orderDefaultPosition = orderUI.orderParent.transform.position;
@@ -130,12 +136,21 @@ public class GameCanvas : MonoBehaviour
         //orderUIs
         if (correctOrderInd != -1)
         {
-            Debug.Log("if (correctOrderInd != -1)");
-            orderUIs[correctOrderInd].orderUIDefaultPos = orderUIs[correctOrderInd].orderParent.transform.position;
+            //   Debug.Log("if (correctOrderInd != -1)");
+            orderUIs[correctOrderInd].orderUIDefaultPosX = orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().anchoredPosition.x;
             orderUIs[correctOrderInd].orderParent.transform.DOMoveX(orderHidePlace.position.x, 0.33f).OnComplete(() =>
                         {
+
+                            if (gameController.ShouldStartNewWave)
+                            {
+                                gameController.GoToNextWave();
+                                Debug.Log("gameController.GoToNextWave();");
+                                orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
+                                return;
+                            }
                             orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
-                            orderUIs[correctOrderInd].orderParent.transform.DOMoveX(orderUIs[correctOrderInd].orderUIDefaultPos.x, 0.33f).OnComplete(() =>
+
+                            orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[correctOrderInd].orderUIDefaultPosX, 0.33f).OnComplete(() =>
                             {
                                 Debug.Log("deepest tween");
                                 gameController.NewOrderAppeared?.Invoke();
@@ -160,6 +175,34 @@ public class GameCanvas : MonoBehaviour
                         gameController.NewOrderAppeared?.Invoke();
                     });
                 });*/
+    }
+    public void InitOrderUIsForNextWave()
+    {
+        orderUIs[0].SetOrderUIBasedOnOrder(gameController.ActiveOrders[0]);
+        orderUIs[1].SetOrderUIBasedOnOrder(gameController.ActiveOrders[1]);
+
+        orderUIs[0].ToggleShow(true);
+        orderUIs[1].ToggleShow(true);
+
+        orderUIs[0].orderParent.transform.position = new Vector3(orderHidePlace.position.x, orderUIs[0].orderParent.transform.position.y, orderUIs[0].orderParent.transform.position.z);
+        orderUIs[1].orderParent.transform.position = new Vector3(orderHidePlace.position.x, orderUIs[1].orderParent.transform.position.y, orderUIs[1].orderParent.transform.position.z);
+
+        orderUIs[0].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[0].orderUIDefaultPosX, 0.33f).OnComplete(() =>
+        {
+            gameController.NewOrderAppeared?.Invoke();
+            correctOrderInd = -1;
+        });
+
+        orderUIs[1].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[1].orderUIDefaultPosX, 0.33f).OnComplete(() =>
+        {
+            gameController.NewOrderAppeared?.Invoke();
+            correctOrderInd = -1;
+        });
+    }
+    public void UpdateDay(int dayNumber)
+    {
+        dayText.text = "Day " + dayNumber;
+        //maybe add an animation
     }
 
     public void OnMoneyAmountChanged()

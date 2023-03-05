@@ -18,6 +18,7 @@ namespace Aezakmi
 
         private void LateUpdate()
         {
+            if (target == null) return;
             // Set size
            // worldPos=transform.TransformPoint(transform.position);
             

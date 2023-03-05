@@ -234,6 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5591333828524628835}
+  - component: {fileID: 5840267760901964978}
   m_Layer: 5
   m_Name: OrderParentUI
   m_TagString: Untagged
@@ -266,6 +267,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.001159668, y: 361}
   m_SizeDelta: {x: -478.0434, y: -1893.1174}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &5840267760901964978
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393322534118681508}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7509338218077663612
 GameObject:
   m_ObjectHideFlags: 0
