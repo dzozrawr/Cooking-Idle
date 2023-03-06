@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pan frying time
+  m_text: Deep fryer speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0.20134129, b: 0.5188679, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -294,7 +294,7 @@ RectTransform:
   m_GameObject: {fileID: 2094164383459495877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.91137, y: 0.91137, z: 0.91137}
   m_Children:
   - {fileID: 8775950817729688204}
   - {fileID: 2893633408666994433}
@@ -443,12 +443,8 @@ MonoBehaviour:
   moneyText: {fileID: 5681141926552238135}
   moneyImg: {fileID: 7087663609886232905}
   disabledButtonColor: {r: 0.67058825, g: 0.64705884, b: 0.64705884, a: 1}
-  cookingTimesForLevels:
-  - 5
-  - 3
-  - 2
-  - 1
   pricesForLevels: 050000000c0000000d00000021000000
+  upgradeValuesForLevels: []
 --- !u!1 &3314019480020043900
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 20.023, y: -0.000015089}
+  m_AnchoredPosition: {x: 33, y: -0.000015089}
   m_SizeDelta: {x: 40.045303, y: 40.0453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2136918480723686027
