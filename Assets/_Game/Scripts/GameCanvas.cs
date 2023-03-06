@@ -231,6 +231,8 @@ public class GameCanvas : MonoBehaviour
             gameController.NewOrderAppeared?.Invoke();
             correctOrderInd = -1;
         });
+
+        CustomerManager.Instance.SpawnNewCustomerWave();
     }
     public void UpdateDayForNextWave(int dayNumber)
     {
