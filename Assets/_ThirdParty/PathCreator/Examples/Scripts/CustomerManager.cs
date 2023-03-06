@@ -10,7 +10,7 @@ public class CustomerManager : MonoBehaviour
 
     public Transform customerSpawnPlace = null;
 
-    public GameObject customerPrefab = null;
+    public List<GameObject> customerPrefabs = null;
 
     public Transform leaveTarget = null;
 
@@ -39,7 +39,7 @@ public class CustomerManager : MonoBehaviour
 
         if (customers.Count < maxCustomerN)
         {
-            GameObject newCustomerGO = Instantiate(customerPrefab, customerSpawnPlace.position, customers[0].transform.rotation);
+            GameObject newCustomerGO = Instantiate(customerPrefabs[Random.Range(0, customerPrefabs.Count)], customerSpawnPlace.position, customers[0].transform.rotation);
             newCustomerGO.transform.SetParent(transform);
 
             Customer c = newCustomerGO.GetComponent<Customer>();

@@ -4341,7 +4341,17 @@ MonoBehaviour:
   - {fileID: 3069388551763391136}
   orderPlace: {fileID: 1338843076}
   customerSpawnPlace: {fileID: 1229871319}
-  customerPrefab: {fileID: 8035245451930682617, guid: ce1a40a9cfff787429788167d6e20ba5, type: 3}
+  customerPrefabs:
+  - {fileID: 6988305097717534753, guid: 25969bb1b34986d439224c1ac78b0391, type: 3}
+  - {fileID: 6387907283964795228, guid: b0818bbbc8915bc44bd319793f2f0dff, type: 3}
+  - {fileID: 9047524066785720868, guid: 811022093218cbb43843c0db746b569b, type: 3}
+  - {fileID: 5053094850016757838, guid: 17133b93f371965488b6b65bbd52729c, type: 3}
+  - {fileID: 6927505872244794161, guid: c74e8478ecefe4e43b9375e1af046d7f, type: 3}
+  - {fileID: 6387907283964795228, guid: e9fc53f8dc4990a4e888bbc588cb76d0, type: 3}
+  - {fileID: 5053094850016757838, guid: fbe1aab1028bab44bae37f54b81d630a, type: 3}
+  - {fileID: 9047524066785720868, guid: e7bcfb16db314bf41ae278aea5ccc8ef, type: 3}
+  - {fileID: 6988305097717534753, guid: 04d89266e98b6ef4d8a022ca8a1726de, type: 3}
+  - {fileID: 6927505872244794161, guid: cf82892dfcd8b6241afb4ce9942d4b26, type: 3}
   leaveTarget: {fileID: 1992666187}
 --- !u!114 &501136625 stripped
 MonoBehaviour:

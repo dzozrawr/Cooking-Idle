@@ -129,6 +129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cowboyhatFBX
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 649f277a60e13c14da49a2441d362116, type: 3}
 --- !u!4 &644901102221739652 stripped
@@ -402,6 +406,11 @@ SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -2290032844319090840, guid: eacba0f16a21e7346974ea91ac0aaa84, type: 3}
   m_PrefabInstance: {fileID: 6988305096354542633}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4221851706692692027 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6515712193588681746, guid: eacba0f16a21e7346974ea91ac0aaa84, type: 3}
+  m_PrefabInstance: {fileID: 6988305096354542633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &35476192814038638
 Animator:
   serializedVersion: 3
@@ -421,3 +430,80 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &7116754549860044915
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4221851706692692027}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 484.31506
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 452.83237
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 439.0889
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.031
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.128
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000024345275
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0000016667655
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.82514346
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.56492317
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -68.794
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: da291ab2ab3760b4bbd5a31e9dd6a8af, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: da291ab2ab3760b4bbd5a31e9dd6a8af, type: 2}
+    - target: {fileID: 919132149155446097, guid: 649f277a60e13c14da49a2441d362116, type: 3}
+      propertyPath: m_Name
+      value: cowboyhatFBX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 649f277a60e13c14da49a2441d362116, type: 3}
