@@ -4949,6 +4949,10 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6919158055321608432, guid: 4d7856462dbb2274788be876f93659df, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -325776238125573412, guid: 935bc0ef2606c124280980fdfa59b8b5, type: 2}
     - target: {fileID: 8327920302254859923, guid: 4d7856462dbb2274788be876f93659df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -27467,6 +27471,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3054144223383404528, guid: 4d7856462dbb2274788be876f93659df, type: 3}
+      propertyPath: _amount.y
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4718353729804517745, guid: 4d7856462dbb2274788be876f93659df, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -27533,7 +27541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5309734808230452101, guid: 4d7856462dbb2274788be876f93659df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.43
+      value: 0.875
       objectReference: {fileID: 0}
     - target: {fileID: 5309734808230452101, guid: 4d7856462dbb2274788be876f93659df, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27574,10 +27582,6 @@ PrefabInstance:
     - target: {fileID: 6001302758510454465, guid: 4d7856462dbb2274788be876f93659df, type: 3}
       propertyPath: m_Name
       value: CoinUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6919158055321608432, guid: 4d7856462dbb2274788be876f93659df, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8327920302254859923, guid: 4d7856462dbb2274788be876f93659df, type: 3}
       propertyPath: m_AnchorMax.y

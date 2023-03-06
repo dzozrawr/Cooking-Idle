@@ -86,28 +86,7 @@ public class CoinUIEarnScript : MonoBehaviour
         errorGO.transform.position = errorStartingPos;
     }
 
-/*    public void PlayCoinEarnAnimation()
-    {
-        // transform.SetParent(transform.parent.parent);
-        if(fadeInCoroutine!=null){
-            StopCoroutine(fadeInCoroutine);
-            fadeInCoroutine=null;
-            SetToDefaultState();
-            coinTweener.Tweener.Pause();
-            coinTweener.Tweener.Kill();
-        }
 
-        coinText.text = "+" + moneyAmount;
-
-        canvas.enabled = true;
-        coinTweener.AddDelegateOnComplete(() =>
-        {
-
-        });
-        coinTweener.PlayTween();
-        fadeInCoroutine=StartCoroutine(FadeInTween(coinTextCanvasGroup, animationDuration));
-    }
-*/
     public void PlayError()
     {
         //coinText.text = "+" + coinAmount;
