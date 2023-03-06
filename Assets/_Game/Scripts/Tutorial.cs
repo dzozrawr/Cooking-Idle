@@ -145,7 +145,7 @@ public class Tutorial : MonoBehaviour
             }
 
             ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;
-            Debug.Log("ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;");
+         //   Debug.Log("ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;");
             ingrIndex = (ingrIndex + 1) % ingrN;
 
 

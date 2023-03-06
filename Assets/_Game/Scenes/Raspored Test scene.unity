@@ -21715,6 +21715,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 527329748}
+    - target: {fileID: 4746358107170741116, guid: cd8797fe6c0a3fd45adc754b0a2eaacb, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4746358107170741118, guid: cd8797fe6c0a3fd45adc754b0a2eaacb, type: 3}
       propertyPath: m_Name
       value: TriggerSpotCanvas
@@ -22274,7 +22278,7 @@ PrefabInstance:
     - target: {fileID: 4171036368795895596, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: ingrTypeSpriteList.Array.data[11].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d3054a09363508d4fb51530a011c4a27, type: 3}
+      objectReference: {fileID: 21300000, guid: 9985e2b1e96b63b48a4fd944b96bc78f, type: 3}
     - target: {fileID: 4171036368795895596, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: ingrTypeSpriteList.Array.data[12].sprite
       value: 
@@ -22373,7 +22377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orderWaves.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6157970904649718400, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: orders.Array.data[3].orderID

@@ -77,9 +77,16 @@ public class GameController : MonoBehaviour
 
     public Order GetNextOrder()
     {
+        if (curWaveInd>=orderWaves.Count)
+        {
+            return orders[Random.Range(0, orders.Count)];
+        }
+        
+
+
         if (orderInd >= orderWaves[curWaveInd].orders.Count)
         {
-            Debug.Log("Orders done in wave " + curWaveInd);
+           // Debug.Log("Orders done in wave " + curWaveInd);
             return null;
         }
 
@@ -142,7 +149,7 @@ public class GameController : MonoBehaviour
 
                 if ((activeOrders[0] == null) && (activeOrders[1] == null))
                 {
-                    Debug.Log("Both active orders are null");
+                   // Debug.Log("Both active orders are null");
                     ShouldStartNewWave = true;
                 }
                 // gameCanvas.orderUIs[i].SetOrderUIBasedOnOrder(activeOrders[i]);
@@ -160,11 +167,11 @@ public class GameController : MonoBehaviour
         curWaveInd++;
         orderInd = 0;
 
-        if (curWaveInd >= orderWaves.Count)
+/*        if (curWaveInd >= orderWaves.Count)
         {
             Debug.Log("No more waves, can't move on.");
             return;
-        }
+        }*/
 
         activeOrders[0] = GetNextOrder();
         activeOrders[1] = GetNextOrder();

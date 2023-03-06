@@ -24,10 +24,17 @@ public class GameCanvas : MonoBehaviour
 
         private bool isOrderSet = false;
 
+        private bool isAnyIngrIncorrect = false;
+
+        public bool IsAnyIngrIncorrect { get => isAnyIngrIncorrect; set => isAnyIngrIncorrect = value; }
 
         public void SetOrderUIBasedOnOrder(Order order)
         {
-            if (order == null) ToggleShow(false);
+            if (order == null)
+            {
+                ToggleShow(false);
+                return;
+            }
 
             IngredientSpriteHolder ingredientSpriteHolder = GameController.Instance.ingredientSpriteHolder;
             foodImg.sprite = order.orderSprite;
@@ -58,17 +65,17 @@ public class GameCanvas : MonoBehaviour
 
         public void ShowOrderCorrectness(bool[] ingredientStates)
         {
-            bool isAnyIncorrect = false;
+            isAnyIngrIncorrect = false;
             for (int i = 0; i < ingredientsUI.Length; i++)
             {
                 if (ingredientsUI[i].ingredientImg.gameObject.activeSelf)
                 {
-                    if (!ingredientStates[i]) isAnyIncorrect = true;
+                    if (!ingredientStates[i]) isAnyIngrIncorrect = true;
                     ingredientsUI[i].ShowCorrectness(ingredientStates[i]);
                 }
             }
 
-            if (isAnyIncorrect)
+            if (isAnyIngrIncorrect)
             {
                 GameController.Instance.gameCanvas.Invoke(nameof(HideOrderCorrectness), 1.5f);
             }
@@ -77,12 +84,16 @@ public class GameCanvas : MonoBehaviour
 
         public void HideOrderCorrectness()
         {
-            for (int i = 0; i < ingredientsUI.Length; i++)
+            if (isAnyIngrIncorrect)
             {
-                if (ingredientsUI[i].ingredientImg.gameObject.activeSelf)
+                for (int i = 0; i < ingredientsUI.Length; i++)
                 {
-                    ingredientsUI[i].HideCorrectness();
+                    if (ingredientsUI[i].ingredientImg.gameObject.activeSelf)
+                    {
+                        ingredientsUI[i].HideCorrectness();
+                    }
                 }
+                isAnyIngrIncorrect = false;
             }
         }
 
@@ -115,7 +126,7 @@ public class GameCanvas : MonoBehaviour
         //orderUI.orderUIDefaultPos
         orderDefaultPosition = orderUI.orderParent.transform.position;
         gameController = GameController.Instance;
-       // gameController.GameCanvas = this;
+        // gameController.GameCanvas = this;
 
         coinAmountTxt.text = GameController.CoinAmount + "";
         gameController.MoneyAmountChanged += OnMoneyAmountChanged;
@@ -127,7 +138,9 @@ public class GameCanvas : MonoBehaviour
 
     public void HideOrderCorrectness()
     {
-        orderUI.HideOrderCorrectness();
+        //orderUI.HideOrderCorrectness();
+        orderUIs[0].HideOrderCorrectness();
+        orderUIs[1].HideOrderCorrectness();
     }
 
     public void ChangeToNextOrder()
@@ -144,7 +157,7 @@ public class GameCanvas : MonoBehaviour
                             if (gameController.ShouldStartNewWave)
                             {
                                 gameController.GoToNextWave();
-                                Debug.Log("gameController.GoToNextWave();");
+                             //   Debug.Log("gameController.GoToNextWave();");
                                 orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
 
                                 return;
@@ -158,9 +171,9 @@ public class GameCanvas : MonoBehaviour
 
                             orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[correctOrderInd].orderUIDefaultPosX, 0.33f).OnComplete(() =>
                             {
-                                Debug.Log("deepest tween");
-                                if(correctOrderInd==1)
-                                gameController.NewOrderAppeared?.Invoke();
+                              //  Debug.Log("deepest tween");
+                                if (correctOrderInd == 1)
+                                    gameController.NewOrderAppeared?.Invoke();
                                 correctOrderInd = -1;
                             });
                         });
