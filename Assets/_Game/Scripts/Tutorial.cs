@@ -26,6 +26,8 @@ public class Tutorial : MonoBehaviour
 
     public RecycleBin recycleBin = null;
 
+    public TriggerSpotUpgrade upgradeSpot = null;
+
     private GameController gameController = null;
     private PlayerController player = null;
     private IngredientBoxHolder ingredientBoxHolder = null;
@@ -50,7 +52,7 @@ public class Tutorial : MonoBehaviour
 
         player.guidingIndicator.TargetReached += UpdateTutorial;
         gameController.NewOrderAppeared += InitTutorial;
-
+        gameController.UpgradeSpotTriggered += UgradeSpotTriggered;
 
         //player.guidingIndicator.SetTargetAndEnable(ingredientBoxHolder.GetIngredientBox(ingredientList[0]).transform);
 
@@ -71,15 +73,29 @@ public class Tutorial : MonoBehaviour
         StartCoroutine(FrameEndWait());
     }
 
+    private void UgradeSpotTriggered()
+    {
+        upgradeSpot = null;
+    }
+
     private void UpdateTutorialCore()
     {
-       // Debug.Log("ingrIndex="+ingrIndex);
+       // Debug.Log("UpdateTutorialCore()");
+        if (GameController.curWaveInd == 1 && upgradeSpot != null)
+        {
+          //  Debug.Log("GameController.curWaveInd == 1 && upgradeSpot != null");
+            player.guidingIndicator.SetTargetAndEnable(upgradeSpot.transform);
+            
+            return;
+        }
+
+        // Debug.Log("ingrIndex="+ingrIndex);
         if (isOrderDone)
         {
             player.guidingIndicator.SetEnabled(false);
             isOrderDone = false;
 
-            ResetTutorial();
+           // ResetTutorial();
             return;
         }
         if (toFinishSpot)
@@ -98,7 +114,7 @@ public class Tutorial : MonoBehaviour
 
             ingrTutorials[ingrIndex].prevTarget = target;
 
-          //  Debug.Log(ingrTutorials[ingrIndex].type);
+            //  Debug.Log(ingrTutorials[ingrIndex].type);
             return;
         }
 
@@ -145,7 +161,7 @@ public class Tutorial : MonoBehaviour
             }
 
             ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;
-         //   Debug.Log("ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;");
+            //   Debug.Log("ingrTutorials[ingrIndex].phase = IngredientPhase.Preparing;");
             ingrIndex = (ingrIndex + 1) % ingrN;
 
 

@@ -69,7 +69,7 @@ public class TriggerSpotUpgrade : MonoBehaviour
         {
 
             isTriggering = true;
-
+            gameController.UpgradeSpotTriggered?.Invoke();
         }
     }
 
@@ -81,6 +81,8 @@ public class TriggerSpotUpgrade : MonoBehaviour
             upgradeCanvas.enabled = false;
             radialProgressImg.fillAmount = 0f;
             triggerTimer = 0f;
+
+            playerController.SuccesfulTrigger(transform);
         }
     }
 }

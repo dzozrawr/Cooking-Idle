@@ -30449,6 +30449,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1873590659}
     - target: {fileID: 3806391349782488903, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
+      propertyPath: upgradeSpot
+      value: 
+      objectReference: {fileID: 861792867031118273}
+    - target: {fileID: 3806391349782488903, guid: e684daf3936038b4eb5d80753755bdfe, type: 3}
       propertyPath: pans.Array.size
       value: 1
       objectReference: {fileID: 0}

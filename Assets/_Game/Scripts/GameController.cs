@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public delegate void GameControllerEvent();
     public GameControllerEvent MoneyAmountChanged;
     public GameControllerEvent NewOrderAppeared;
+    public GameControllerEvent UpgradeSpotTriggered;
 
     public List<Order> orders = null;
 
