@@ -18,6 +18,8 @@ public class GameCanvas : MonoBehaviour
         public TMP_Text foodNameText = null;
         public IngredientUI[] ingredientsUI;
 
+        public Image orderBackgroundImg=null;
+
         public float orderUIDefaultPosX;
         //   public Image[] ingredientsImg = new Image[3];
         //private Ingredients.IngredientType[] ingredientsTypes = new IngredientType[3];
@@ -107,6 +109,8 @@ public class GameCanvas : MonoBehaviour
     public List<OrderUI> orderUIs = null;
     public Transform orderHidePlace = null;
     public TMP_Text dayText = null;
+
+    public Sprite orderInactiveBackground=null, orderActiveBackground=null;
     private Vector3 orderDefaultPosition;
     private int correctOrderInd = -1;
 
@@ -168,6 +172,10 @@ public class GameCanvas : MonoBehaviour
                             }
 
                             orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
+                            
+                            orderUIs[correctOrderInd].orderParent.transform.SetAsFirstSibling();
+                            orderUIs[correctOrderInd].orderBackgroundImg.sprite=orderInactiveBackground;
+                            orderUIs[(correctOrderInd+1)%orderUIs.Count].orderBackgroundImg.sprite=orderActiveBackground;
 
                             orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[correctOrderInd].orderUIDefaultPosX, 0.33f).OnComplete(() =>
                             {
@@ -200,6 +208,11 @@ public class GameCanvas : MonoBehaviour
     {
         orderUIs[0].SetOrderUIBasedOnOrder(gameController.ActiveOrders[0]);
         orderUIs[1].SetOrderUIBasedOnOrder(gameController.ActiveOrders[1]);
+
+        orderUIs[0].orderParent.transform.SetAsLastSibling();
+
+        orderUIs[0].orderBackgroundImg.sprite=orderActiveBackground;
+        orderUIs[1].orderBackgroundImg.sprite=orderInactiveBackground;
 
         orderUIs[0].ToggleShow(true);
         orderUIs[1].ToggleShow(true);
