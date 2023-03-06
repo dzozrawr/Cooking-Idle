@@ -93,6 +93,8 @@ public class Plate : HoldableObject
 
                         playerController.SetHoldableObject(null);
                         ingrPlaceInd++;
+
+                        playerController.SuccesfulTrigger(transform);
                     }
                 }
             }
@@ -111,6 +113,8 @@ public class Plate : HoldableObject
                     {
                         isCombining = true;
                     }
+
+                    playerController.SuccesfulTrigger(transform);
                 }
             }
         }

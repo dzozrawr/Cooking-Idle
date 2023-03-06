@@ -4,22 +4,18 @@ using UnityEngine;
 using PlayerNamespace;
 using HoldableNameSpace;
 
-public class DeepFrier : MonoBehaviour
+public class DeepFrier : CookingTool
 {
-    public Transform placeForIngredient = null;
-
-    public ProgressCircle progressCircle = null;
-
+    public static float timeToCook = 10f;
     public ParticleSystem cookingParticles = null;
     public AnimatedTextureUVs waterAnimation = null;
 
     private PlayerController playerController = null;
 
-    private HoldableObject ingredient = null, cookedIngredient = null;
 
     private DeepFryableIngridient deepFriableIngredient = null;
 
-    private float timeToChop = 3f;
+  //  private float timeToCook = 3f;
 
     private float choppingTimer = 0f;
 
@@ -35,16 +31,16 @@ public class DeepFrier : MonoBehaviour
             }
             choppingTimer += Time.deltaTime;
 
-            progressCircle.SetProgress(choppingTimer / timeToChop);
+            progressCircle.SetProgress(choppingTimer / timeToCook);
             // potCookableIngredient.CookingEffect(choppingTimer / timeToChop);
             //here also update the progress bar
-            if (choppingTimer > timeToChop)
+            if (choppingTimer > timeToCook)
             {
                 choppingTimer = 0f;
                 progressCircle.SetProgress(1f);
-                cookedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
-                cookedIngredient.transform.position = placeForIngredient.position;
-                cookedIngredient.transform.SetParent(placeForIngredient);
+                preparedIngredient = Instantiate(ingredient.GetComponent<FreshIngredient>().preparedIngred.gameObject).GetComponent<HoldableObject>();
+                preparedIngredient.transform.position = placeForIngredient.position;
+                preparedIngredient.transform.SetParent(placeForIngredient);
 
                 Destroy(ingredient.gameObject);
                 ingredient = null;
@@ -80,7 +76,7 @@ public class DeepFrier : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {//if player collides
             playerController = other.gameObject.GetComponent<PlayerController>();
-            if (cookedIngredient == null)  //if the board is empty
+            if (preparedIngredient == null)  //if the board is empty
             {
                 if (playerController.PlayerState == PlayerStates.Holding)    //player is holding something so leave the held object on the board
                 {
@@ -92,19 +88,22 @@ public class DeepFrier : MonoBehaviour
                     ingredient.transform.position = placeForIngredient.position;
                     ingredient.transform.SetParent(placeForIngredient);
                     ingredient.transform.rotation = Quaternion.identity;
+                    //ingredient.transform.rotation = Quaternion.Euler(deepFriableIngredient.rotationForDeepFryer) ;
 
 
                     playerController.SetHoldableObject(null);
+                    playerController.SuccesfulTrigger(transform);
                 }
             }
             else //if the board holds a chopped ingredient    //here we pick up the chopped ingredient if possible
             {
                 if (playerController.PlayerState == PlayerStates.Holding) return;
 
-                playerController.SetHoldableObject(cookedIngredient);
+                playerController.SetHoldableObject(preparedIngredient);
 
                 //ToggleCookingFX(false);
-                cookedIngredient = null;
+                preparedIngredient = null;
+                playerController.SuccesfulTrigger(transform);
             }
         }
     }

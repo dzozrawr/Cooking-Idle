@@ -14,12 +14,14 @@ namespace PlayerNamespace
     public class PlayerController : MonoBehaviour
     {
 
+        public static float movementSpeed = 2.66f;
+
         public CharacterController characterController = null;
         public Joystick joystick = null;
 
         public GameObject playerModel = null;
 
-        public float movementSpeed = 1f;
+        //public float movementSpeed = 1f;
 
         public Canvas joystickCanvas = null;
 
@@ -62,6 +64,8 @@ namespace PlayerNamespace
         // Start is called before the first frame update
         void Start()
         {
+          //  GameObject testTarget = GameObject.Find("Ingredient box burger bun (1)");
+          //  guidingIndicator.SetTargetAndEnable(testTarget.transform);
             // playerAnimator.SetTrigger("Walk");
             //playerAnimator.SetFloat("speed", 0f);
             //  joystick.OnPointerDown(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.));
@@ -118,8 +122,8 @@ namespace PlayerNamespace
             }
 
             holdableObject.transform.position = placeForIngredient.transform.position;
-//            holdableObject.transform.SetParent(placeForIngredient.transform);
-            holdableObject.transform.parent=placeForIngredient.transform;
+            //            holdableObject.transform.SetParent(placeForIngredient.transform);
+            holdableObject.transform.parent = placeForIngredient.transform;
             //holdableObject.transform.rotation=Quaternion.Euler(0,0,0);
             //holdableObject.transform.rotation=Quaternion.identity;
 
@@ -140,6 +144,7 @@ namespace PlayerNamespace
         public void TriggerIdleAnim()
         {
             playerAnimator.SetBool("isWalking", true);
+            playerAnimator.SetTrigger("Idle");
             if (playerAnimator.GetBool("isBucketWalking")) playerAnimator.SetBool("isBucketWalking", false);
             hasIngredient = false;
         }
@@ -159,6 +164,13 @@ namespace PlayerNamespace
 
             // joystick.
             //joystick.Vertical
+        }
+/*         private void OnTriggerEnter(Collider other) {
+            guidingIndicator.PlayerTriggered(other.transform);
+        } */
+
+        public void SuccesfulTrigger(Transform otherTransform){
+            guidingIndicator.PlayerTriggered(otherTransform);
         }
 
         /*     public void AddPlantToBackpack(PlantInfo plant, GameObject plantModel, float marketScaleBy = 1f)

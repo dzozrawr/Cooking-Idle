@@ -71,7 +71,9 @@ public class TriggerSpot : MonoBehaviour
         tweenSequence.Append(objectToUnlock.transform.DOScale(objectToUnlockDefaultScale,0.25f));
 
         tweenSequence.AppendCallback(()=>{
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+            UnlockablesManager.Instance.SignalTriggerSpotUnlocked(this);
         });
     }
 
