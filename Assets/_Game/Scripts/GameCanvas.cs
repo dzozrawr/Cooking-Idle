@@ -18,7 +18,7 @@ public class GameCanvas : MonoBehaviour
         public TMP_Text foodNameText = null;
         public IngredientUI[] ingredientsUI;
 
-        public Image orderBackgroundImg=null;
+        public Image orderBackgroundImg = null;
 
         public float orderUIDefaultPosX;
         //   public Image[] ingredientsImg = new Image[3];
@@ -110,7 +110,7 @@ public class GameCanvas : MonoBehaviour
     public Transform orderHidePlace = null;
     public TMP_Text dayText = null;
 
-    public Sprite orderInactiveBackground=null, orderActiveBackground=null;
+    public Sprite orderInactiveBackground = null, orderActiveBackground = null;
     private Vector3 orderDefaultPosition;
     private int correctOrderInd = -1;
 
@@ -153,6 +153,7 @@ public class GameCanvas : MonoBehaviour
         //orderUIs
         if (correctOrderInd != -1)
         {
+
             //   Debug.Log("if (correctOrderInd != -1)");
             orderUIs[correctOrderInd].orderUIDefaultPosX = orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().anchoredPosition.x;
             orderUIs[correctOrderInd].orderParent.transform.DOMoveX(orderHidePlace.position.x, 0.33f).OnComplete(() =>
@@ -161,7 +162,7 @@ public class GameCanvas : MonoBehaviour
                             if (gameController.ShouldStartNewWave)
                             {
                                 gameController.GoToNextWave();
-                             //   Debug.Log("gameController.GoToNextWave();");
+                                //   Debug.Log("gameController.GoToNextWave();");
                                 orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
 
                                 return;
@@ -172,16 +173,20 @@ public class GameCanvas : MonoBehaviour
                             }
 
                             orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
-                            
+
+                            //  Debug.Log("correctOrderInd=" + correctOrderInd);
+                            //  Debug.Log("(correctOrderInd + 1) % orderUIs.Count=" + (correctOrderInd + 1) % orderUIs.Count);
+                            orderUIs[correctOrderInd].orderBackgroundImg.sprite = orderInactiveBackground;
+                            orderUIs[(correctOrderInd + 1) % orderUIs.Count].orderBackgroundImg.sprite = orderActiveBackground;
+
                             orderUIs[correctOrderInd].orderParent.transform.SetAsFirstSibling();
-                            orderUIs[correctOrderInd].orderBackgroundImg.sprite=orderInactiveBackground;
-                            orderUIs[(correctOrderInd+1)%orderUIs.Count].orderBackgroundImg.sprite=orderActiveBackground;
 
                             orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[correctOrderInd].orderUIDefaultPosX, 0.33f).OnComplete(() =>
                             {
-                              //  Debug.Log("deepest tween");
-                                if (correctOrderInd == 1)
-                                    gameController.NewOrderAppeared?.Invoke();
+                                
+                                //  Debug.Log("deepest tween");
+                                // if (correctOrderInd == 1)
+                                gameController.NewOrderAppeared?.Invoke();
                                 correctOrderInd = -1;
                             });
                         });
@@ -204,6 +209,19 @@ public class GameCanvas : MonoBehaviour
                     });
                 });*/
     }
+
+    private void ShowOrderAfterDelay()
+    {
+
+        orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[correctOrderInd].orderUIDefaultPosX, 0.33f).OnComplete(() =>
+        {
+
+            //  Debug.Log("deepest tween");
+            // if (correctOrderInd == 1)
+            gameController.NewOrderAppeared?.Invoke();
+            correctOrderInd = -1;
+        });
+    }
     public void InitOrderUIsForNextWave()
     {
         orderUIs[0].SetOrderUIBasedOnOrder(gameController.ActiveOrders[0]);
@@ -211,8 +229,8 @@ public class GameCanvas : MonoBehaviour
 
         orderUIs[0].orderParent.transform.SetAsLastSibling();
 
-        orderUIs[0].orderBackgroundImg.sprite=orderActiveBackground;
-        orderUIs[1].orderBackgroundImg.sprite=orderInactiveBackground;
+        orderUIs[0].orderBackgroundImg.sprite = orderActiveBackground;
+        orderUIs[1].orderBackgroundImg.sprite = orderInactiveBackground;
 
         orderUIs[0].ToggleShow(true);
         orderUIs[1].ToggleShow(true);

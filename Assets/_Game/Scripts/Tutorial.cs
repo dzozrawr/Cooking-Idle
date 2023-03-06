@@ -234,7 +234,11 @@ public class Tutorial : MonoBehaviour
         }
 
         int activeOrderInd = 0;
-        if (gameController.ActiveOrders[activeOrderInd] == null) activeOrderInd = 1;
+
+        if (gameController.gameCanvas.orderUIs[0].orderBackgroundImg.sprite == gameController.gameCanvas.orderActiveBackground) activeOrderInd = 0;
+        if (gameController.gameCanvas.orderUIs[1].orderBackgroundImg.sprite == gameController.gameCanvas.orderActiveBackground) activeOrderInd = 1;
+
+        if (gameController.ActiveOrders[activeOrderInd] == null) activeOrderInd = (activeOrderInd+1)% gameController.ActiveOrders.Length;
         ingredientList = gameController.ActiveOrders[activeOrderInd].ingredientList;
         foreach (IngredientType it in ingredientList)
         {

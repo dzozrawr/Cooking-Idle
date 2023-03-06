@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  opaqueMat: {fileID: 2100000, guid: 9bd0529c4d76e374f8fddc1ae70930cc, type: 2}
-  transparentMat: {fileID: 2100000, guid: e3d64849649dfee4c9b5f5ff600fd64e, type: 2}
+  opaqueMat: {fileID: 2100000, guid: 09224f1258e996343add9a6592fbf291, type: 2}
+  transparentMat: {fileID: 2100000, guid: 04a6c9cd5e2956d4782d6e1284f5705e, type: 2}
   renderer: {fileID: 4079782519732103740}
   animator: {fileID: 4045108543076087571}
   positiveParticle: {fileID: 4015338000964408303}

@@ -134,7 +134,7 @@ MonoBehaviour:
     - {fileID: 4125092264779887021}
     - {fileID: 5230963173923505821}
     - {fileID: 4786123628174762532}
-    orderBackgroundImg: {fileID: 5671011276156324694}
+    orderBackgroundImg: {fileID: 6431347679900253453}
     orderUIDefaultPosX: 0
   - orderParent: {fileID: 5839900660453191254}
     foodImg: {fileID: 2855894953675785131}
@@ -511,6 +511,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5591333828524628835, guid: d70992ac07b0b2b4d8629ac54b5119ca, type: 3}
   m_PrefabInstance: {fileID: 2333677213684970409}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6431347679900253453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8728644221770206884, guid: d70992ac07b0b2b4d8629ac54b5119ca, type: 3}
+  m_PrefabInstance: {fileID: 2333677213684970409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3481822655673923056 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1167285858383185497, guid: d70992ac07b0b2b4d8629ac54b5119ca, type: 3}
