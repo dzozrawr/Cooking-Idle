@@ -4241,10 +4241,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f439afdc1ad2fa54c96fd7f988deba43, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8b1fc8da87464c4cb3c85203a77be8b, type: 2}
+    - target: {fileID: -2215721384896472358, guid: f439afdc1ad2fa54c96fd7f988deba43, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8b1fc8da87464c4cb3c85203a77be8b, type: 2}
     - target: {fileID: 919132149155446097, guid: f439afdc1ad2fa54c96fd7f988deba43, type: 3}
       propertyPath: m_Name
       value: Prop_Frier_Fixed_UVs
       objectReference: {fileID: 0}
+    - target: {fileID: 2575916398071563386, guid: f439afdc1ad2fa54c96fd7f988deba43, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8b1fc8da87464c4cb3c85203a77be8b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f439afdc1ad2fa54c96fd7f988deba43, type: 3}
 --- !u!4 &466564541 stripped
@@ -9805,8 +9817,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109793433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.028767, y: -0.01, z: 3.467}
+  m_LocalScale: {x: 1.1560061, y: 1.1560061, z: 1.4313667}
   m_Children:
   - {fileID: 1772438706}
   - {fileID: 466564541}
@@ -16439,6 +16451,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4901003986843532588, guid: 9179b484d2d85ea4198d9a17b759eeba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8b1fc8da87464c4cb3c85203a77be8b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9179b484d2d85ea4198d9a17b759eeba, type: 3}
 --- !u!4 &1772438706 stripped
@@ -22546,7 +22562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8369112158191498559, guid: 27d4decb91311c9418e989c7b3879d8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1090001
+      value: -1.26
       objectReference: {fileID: 0}
     - target: {fileID: 8369112158191498559, guid: 27d4decb91311c9418e989c7b3879d8b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22554,7 +22570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8369112158191498559, guid: 27d4decb91311c9418e989c7b3879d8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.703
+      value: -4.76
       objectReference: {fileID: 0}
     - target: {fileID: 8369112158191498559, guid: 27d4decb91311c9418e989c7b3879d8b, type: 3}
       propertyPath: m_LocalRotation.w
