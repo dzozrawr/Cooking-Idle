@@ -29192,16 +29192,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 756448450275560756, guid: 50600d92203f1dd49895474acd9bed68, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1228101974}
-    - target: {fileID: 756448450275560756, guid: 50600d92203f1dd49895474acd9bed68, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 756448450275560756, guid: 50600d92203f1dd49895474acd9bed68, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 756448450275560759, guid: 50600d92203f1dd49895474acd9bed68, type: 3}
       propertyPath: m_Name

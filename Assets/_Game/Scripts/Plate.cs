@@ -37,9 +37,11 @@ public class Plate : HoldableObject
     private GameObject newPlate = null;
 
     private bool isCombining = false;
-    private float combiningTimer=0f, timeToCombine = 0.5f;
+    private float combiningTimer = 0f, timeToCombine = 0.5f;
 
     private GameObject foundFoodModelPrefab = null;
+
+    private float triggerStayTimer = 0f, triggerStayMaxTime = 1.5f;
 
     public List<PreparedIngredient> Ingredients { get => ingredients; set => ingredients = value; }
 
@@ -120,6 +122,20 @@ public class Plate : HoldableObject
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (playerController.PlayerState == PlayerStates.Default)
+        {
+            triggerStayTimer += Time.deltaTime;
+            if (triggerStayTimer >= triggerStayMaxTime)
+            {
+                foundFoodModelPrefab = FindPlateFood(ingredients);
+
+                isCombining = true;
+            }
+        }
+    }
+
     private void TakePlate()
     {
         newPlate = Instantiate(plateScriptableObject.platePrefab, transform.position, Quaternion.identity);
@@ -142,6 +158,7 @@ public class Plate : HoldableObject
     {
         isCombining = false;
         combiningTimer = 0f;
+        triggerStayTimer = 0f;
         progressCircle.SetProgress(0f);
         progressCircle.ShowCircle(false);
     }
