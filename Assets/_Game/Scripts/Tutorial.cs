@@ -136,7 +136,7 @@ public class Tutorial : MonoBehaviour
                 //find a free pot
             }
             else
-            if (player.HeldObject is PanFryableIngredient)
+            if ((player.HeldObject is PanFryableIngredient)||(player.HeldObject is Egg))
             {
                 TargetFreeCookingTool(pans);
             }
