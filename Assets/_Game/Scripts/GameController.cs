@@ -139,7 +139,7 @@ public class GameController : MonoBehaviour
         {
             if (activeOrders[i] == null)
             {
-                Debug.Log("Order " + i + " is null.");
+//                Debug.Log("Order " + i + " is null.");
                 continue;
             }
             //if activeOrders[i]==null
