@@ -18,16 +18,25 @@ public class GameCanvas : MonoBehaviour
         public TMP_Text foodNameText = null;
         public IngredientUI[] ingredientsUI;
 
+        public Image orderBackgroundImg = null;
+
         public float orderUIDefaultPosX;
         //   public Image[] ingredientsImg = new Image[3];
         //private Ingredients.IngredientType[] ingredientsTypes = new IngredientType[3];
 
         private bool isOrderSet = false;
 
+        private bool isAnyIngrIncorrect = false;
+
+        public bool IsAnyIngrIncorrect { get => isAnyIngrIncorrect; set => isAnyIngrIncorrect = value; }
 
         public void SetOrderUIBasedOnOrder(Order order)
         {
-            if (order == null) ToggleShow(false);
+            if (order == null)
+            {
+                ToggleShow(false);
+                return;
+            }
 
             IngredientSpriteHolder ingredientSpriteHolder = GameController.Instance.ingredientSpriteHolder;
             foodImg.sprite = order.orderSprite;
@@ -58,17 +67,17 @@ public class GameCanvas : MonoBehaviour
 
         public void ShowOrderCorrectness(bool[] ingredientStates)
         {
-            bool isAnyIncorrect = false;
+            isAnyIngrIncorrect = false;
             for (int i = 0; i < ingredientsUI.Length; i++)
             {
                 if (ingredientsUI[i].ingredientImg.gameObject.activeSelf)
                 {
-                    if (!ingredientStates[i]) isAnyIncorrect = true;
+                    if (!ingredientStates[i]) isAnyIngrIncorrect = true;
                     ingredientsUI[i].ShowCorrectness(ingredientStates[i]);
                 }
             }
 
-            if (isAnyIncorrect)
+            if (isAnyIngrIncorrect)
             {
                 GameController.Instance.gameCanvas.Invoke(nameof(HideOrderCorrectness), 1.5f);
             }
@@ -77,12 +86,16 @@ public class GameCanvas : MonoBehaviour
 
         public void HideOrderCorrectness()
         {
-            for (int i = 0; i < ingredientsUI.Length; i++)
+            if (isAnyIngrIncorrect)
             {
-                if (ingredientsUI[i].ingredientImg.gameObject.activeSelf)
+                for (int i = 0; i < ingredientsUI.Length; i++)
                 {
-                    ingredientsUI[i].HideCorrectness();
+                    if (ingredientsUI[i].ingredientImg.gameObject.activeSelf)
+                    {
+                        ingredientsUI[i].HideCorrectness();
+                    }
                 }
+                isAnyIngrIncorrect = false;
             }
         }
 
@@ -96,6 +109,8 @@ public class GameCanvas : MonoBehaviour
     public List<OrderUI> orderUIs = null;
     public Transform orderHidePlace = null;
     public TMP_Text dayText = null;
+
+    public Sprite orderInactiveBackground = null, orderActiveBackground = null;
     private Vector3 orderDefaultPosition;
     private int correctOrderInd = -1;
 
@@ -115,7 +130,7 @@ public class GameCanvas : MonoBehaviour
         //orderUI.orderUIDefaultPos
         orderDefaultPosition = orderUI.orderParent.transform.position;
         gameController = GameController.Instance;
-       // gameController.GameCanvas = this;
+        // gameController.GameCanvas = this;
 
         coinAmountTxt.text = GameController.CoinAmount + "";
         gameController.MoneyAmountChanged += OnMoneyAmountChanged;
@@ -127,7 +142,9 @@ public class GameCanvas : MonoBehaviour
 
     public void HideOrderCorrectness()
     {
-        orderUI.HideOrderCorrectness();
+        //orderUI.HideOrderCorrectness();
+        orderUIs[0].HideOrderCorrectness();
+        orderUIs[1].HideOrderCorrectness();
     }
 
     public void ChangeToNextOrder()
@@ -136,6 +153,7 @@ public class GameCanvas : MonoBehaviour
         //orderUIs
         if (correctOrderInd != -1)
         {
+
             //   Debug.Log("if (correctOrderInd != -1)");
             orderUIs[correctOrderInd].orderUIDefaultPosX = orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().anchoredPosition.x;
             orderUIs[correctOrderInd].orderParent.transform.DOMoveX(orderHidePlace.position.x, 0.33f).OnComplete(() =>
@@ -144,7 +162,7 @@ public class GameCanvas : MonoBehaviour
                             if (gameController.ShouldStartNewWave)
                             {
                                 gameController.GoToNextWave();
-                                Debug.Log("gameController.GoToNextWave();");
+                                //   Debug.Log("gameController.GoToNextWave();");
                                 orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
 
                                 return;
@@ -156,10 +174,18 @@ public class GameCanvas : MonoBehaviour
 
                             orderUIs[correctOrderInd].SetOrderUIBasedOnOrder(gameController.ActiveOrders[correctOrderInd]);
 
+                            //  Debug.Log("correctOrderInd=" + correctOrderInd);
+                            //  Debug.Log("(correctOrderInd + 1) % orderUIs.Count=" + (correctOrderInd + 1) % orderUIs.Count);
+                            orderUIs[correctOrderInd].orderBackgroundImg.sprite = orderInactiveBackground;
+                            orderUIs[(correctOrderInd + 1) % orderUIs.Count].orderBackgroundImg.sprite = orderActiveBackground;
+
+                            orderUIs[correctOrderInd].orderParent.transform.SetAsFirstSibling();
+
                             orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[correctOrderInd].orderUIDefaultPosX, 0.33f).OnComplete(() =>
                             {
-                                Debug.Log("deepest tween");
-                                if(correctOrderInd==1)
+                                
+                                //  Debug.Log("deepest tween");
+                                // if (correctOrderInd == 1)
                                 gameController.NewOrderAppeared?.Invoke();
                                 correctOrderInd = -1;
                             });
@@ -183,10 +209,28 @@ public class GameCanvas : MonoBehaviour
                     });
                 });*/
     }
+
+    private void ShowOrderAfterDelay()
+    {
+
+        orderUIs[correctOrderInd].orderParent.GetComponent<RectTransform>().DOAnchorPosX(orderUIs[correctOrderInd].orderUIDefaultPosX, 0.33f).OnComplete(() =>
+        {
+
+            //  Debug.Log("deepest tween");
+            // if (correctOrderInd == 1)
+            gameController.NewOrderAppeared?.Invoke();
+            correctOrderInd = -1;
+        });
+    }
     public void InitOrderUIsForNextWave()
     {
         orderUIs[0].SetOrderUIBasedOnOrder(gameController.ActiveOrders[0]);
         orderUIs[1].SetOrderUIBasedOnOrder(gameController.ActiveOrders[1]);
+
+        orderUIs[0].orderParent.transform.SetAsLastSibling();
+
+        orderUIs[0].orderBackgroundImg.sprite = orderActiveBackground;
+        orderUIs[1].orderBackgroundImg.sprite = orderInactiveBackground;
 
         orderUIs[0].ToggleShow(true);
         orderUIs[1].ToggleShow(true);
@@ -205,6 +249,8 @@ public class GameCanvas : MonoBehaviour
             gameController.NewOrderAppeared?.Invoke();
             correctOrderInd = -1;
         });
+
+        CustomerManager.Instance.SpawnNewCustomerWave();
     }
     public void UpdateDayForNextWave(int dayNumber)
     {

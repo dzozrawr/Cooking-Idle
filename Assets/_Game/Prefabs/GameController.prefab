@@ -58,8 +58,61 @@ MonoBehaviour:
     orderSprite: {fileID: 21300000, guid: 9f189f7382cea7a4aa9df6ebc4a7c62a, type: 3}
     foodName: Broccoli stew
     ingredientList: 0500000001000000
+  - orderID: 3
+    orderSprite: {fileID: 21300000, guid: 678f8abe9794a104a96f3dc61647358f, type: 3}
+    foodName: Steak and rice
+    ingredientList: 060000000400000005000000
+  - orderID: 4
+    orderSprite: {fileID: 21300000, guid: 625fd6412faa45240ad2370f4400a420, type: 3}
+    foodName: Steak and veggies
+    ingredientList: 060000000100000005000000
+  - orderID: 4
+    orderSprite: {fileID: 21300000, guid: 625fd6412faa45240ad2370f4400a420, type: 3}
+    foodName: Steak and veggies
+    ingredientList: 060000000100000005000000
+  - orderID: 5
+    orderSprite: {fileID: 21300000, guid: 7aae49322d8638f4780343e2d121c9b2, type: 3}
+    foodName: Burger
+    ingredientList: 030000000200000001000000
+  - orderID: 6
+    orderSprite: {fileID: 21300000, guid: 4e8c1e8be1271534784661053acebee3, type: 3}
+    foodName: Sandwich
+    ingredientList: 080000000700000001000000
+  - orderID: 7
+    orderSprite: {fileID: 21300000, guid: 69459c93bfa38c64c9a17ea5c504d844, type: 3}
+    foodName: Meat and veggies
+    ingredientList: 0a0000000900000000000000
+  - orderID: 8
+    orderSprite: {fileID: 21300000, guid: 0f43b0bcb59b9a248a15523981819f8c, type: 3}
+    foodName: Salad
+    ingredientList: 010000000000000005000000
+  - orderID: 9
+    orderSprite: {fileID: 21300000, guid: 4f6abfdb85eb8a34795a8251558ffed1, type: 3}
+    foodName: Mac and cheese
+    ingredientList: 0b0000000c00000005000000
+  - orderID: 10
+    orderSprite: {fileID: 21300000, guid: c91b3f4dac7b1bd4a8ccad55c5087ba9, type: 3}
+    foodName: Omelette
+    ingredientList: 0d0000000700000000000000
+  - orderID: 11
+    orderSprite: {fileID: 21300000, guid: 099f3df3319e9e64da51f3795e43c780, type: 3}
+    foodName: French fries
+    ingredientList: 0e000000
+  - orderID: 12
+    orderSprite: {fileID: 21300000, guid: bd09dc09a319e9d4b9e0d95a53948e0d, type: 3}
+    foodName: Omelette with bacon
+    ingredientList: 0d000000000000000f000000
+  orderWaves: []
   playerController: {fileID: 0}
   ingredientSpriteHolder: {fileID: 4171036368795895596}
+  gameCanvas: {fileID: 0}
+  activeOrders:
+  - id: 0
+  - id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: , ns: , asm: }
 --- !u!114 &4171036368795895596
 MonoBehaviour:
   m_ObjectHideFlags: 0

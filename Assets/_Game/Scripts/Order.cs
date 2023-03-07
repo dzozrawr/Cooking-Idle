@@ -9,7 +9,7 @@ public class Order
 {
     public enum OrderID
     {
-        BurgerFries, CarrotStew, BroccoliStew, SteakRiceBroccoli, SteakLettuceBroccoli
+        BurgerFries, CarrotStew, BroccoliStew, SteakRiceBroccoli, SteakLettuceBroccoli, Burger, Sandwich, MeatWBoneVeggies, Salad, MacAndCheeseBroccoli, Omelette, FrenchFries, OmeletteWBacon
     }
     public OrderID orderID;
     public Sprite orderSprite = null;

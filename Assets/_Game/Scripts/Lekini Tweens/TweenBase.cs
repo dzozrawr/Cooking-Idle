@@ -42,6 +42,8 @@ namespace Aezakmi.Tweens
         public void AddDelegateOnComplete(UnityAction callback) => _eventsOnComplete.AddListener(callback);
         public void RemoveDelegateOnComplete(UnityAction callback) => _eventsOnComplete.RemoveListener(callback);
 
+        public void RemoveAllDelegatesOnComplete() => _eventsOnComplete.RemoveAllListeners();
+
         protected abstract void SetTweener();
         protected virtual void Complete()
         {

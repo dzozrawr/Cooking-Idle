@@ -45,6 +45,7 @@ public class TriggerSpot : MonoBehaviour
                 buyingTimer = buyingTime;
                 Invoke(nameof(DisappearAfterDelay),0.33f);
                 isBought=true;
+                gameController.AddMoney(-moneyInt);
             }
             radialProgressImg.fillAmount = buyingTimer / buyingTime;
         }

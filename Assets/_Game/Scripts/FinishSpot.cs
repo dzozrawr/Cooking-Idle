@@ -61,7 +61,7 @@ public class FinishSpot : MonoBehaviour
             // GameObject c=  Instantiate(coinUIEarnScript.gameObject);
             //   c.transform.position = transform.position;
             // c.GetComponent<CoinUIEarnScript>().PlayCoinEarnAnimation(5);
-            coinUIEarnScript.PlayCoinEarnAnimation(5);
+            coinUIEarnScript.PlayCoinEarnAnimation(20);
             customerManager.FirstCustomer.PlayPosOrNegParticle(true);
             customerManager.OrderDone();
             gameController.gameCanvas.ChangeToNextOrder();

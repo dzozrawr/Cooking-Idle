@@ -32,11 +32,11 @@ public class UnlockablesManager : MonoBehaviour
             }
 
 
-            Debug.Log("unlockableStates lenght " + triggerSpotsUnlockables.Count);
+         //   Debug.Log("unlockableStates lenght " + triggerSpotsUnlockables.Count);
         }
         else
         {
-            Debug.Log("unlockableStates.length " + unlockableStates.Count);
+           // Debug.Log("unlockableStates.length " + unlockableStates.Count);
             for (int i = 0; i < triggerSpotsUnlockables.Count; i++)
             {
                 triggerSpotsUnlockables[i].gameObject.SetActive(!unlockableStates[i]);

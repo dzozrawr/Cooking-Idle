@@ -27,13 +27,14 @@ public class CoinUIEarnScript : MonoBehaviour
 
     private Canvas canvas = null;
 
-    private Coroutine fadeInCoroutine=null;
+    private Coroutine fadeInCoroutine = null;
 
 
     private void Awake()
     {
         coinText = coinTextGO.GetComponent<TMP_Text>();
-        coinTweener = coinTextGO.GetComponent<TweenBase>();
+        // coinTweener = coinTextGO.GetComponent<TweenBase>();
+        coinTweener = coinTextGO.transform.parent.GetComponent<TweenBase>();
         coinTextCanvasGroup = coinTextGO.GetComponent<CanvasGroup>();
 
 
@@ -43,7 +44,7 @@ public class CoinUIEarnScript : MonoBehaviour
         errorTweener = errorGO.GetComponent<TweenBase>();
         errorCanvasGroup = errorGO.GetComponent<CanvasGroup>();
 
-        errorStartingPos= errorGO.transform.position;
+        errorStartingPos = errorGO.transform.position;
 
         canvas = GetComponent<Canvas>();
 
@@ -56,7 +57,7 @@ public class CoinUIEarnScript : MonoBehaviour
     public void SetMoneyAmount(int amount)
     {
         moneyAmount = amount;
-        coinText.text ="+" + moneyAmount;
+        coinText.text = "+" + moneyAmount;
     }
 
     IEnumerator FadeInTween(CanvasGroup cg, float duration)
@@ -72,39 +73,20 @@ public class CoinUIEarnScript : MonoBehaviour
 
         cg.alpha = 1;
         SetToDefaultState();
-        fadeInCoroutine=null;
+        fadeInCoroutine = null;
+
     }
 
     private void SetToDefaultState()
     {
         coinTextCanvasGroup.alpha = 0f;
-        coinTextGO.transform.position = coinTextStartingPos;
+        // coinTextGO.transform.position = coinTextStartingPos;
+        coinTextGO.transform.parent.position = coinTextStartingPos;
 
         errorCanvasGroup.alpha = 0f;
         errorGO.transform.position = errorStartingPos;
     }
 
-    public void PlayCoinEarnAnimation()
-    {
-        // transform.SetParent(transform.parent.parent);
-        if(fadeInCoroutine!=null){
-            StopCoroutine(fadeInCoroutine);
-            fadeInCoroutine=null;
-            SetToDefaultState();
-            coinTweener.Tweener.Pause();
-            coinTweener.Tweener.Kill();
-        }
-
-        coinText.text = "+" + moneyAmount;
-
-        canvas.enabled = true;
-        coinTweener.AddDelegateOnComplete(() =>
-        {
-
-        });
-        coinTweener.PlayTween();
-        fadeInCoroutine=StartCoroutine(FadeInTween(coinTextCanvasGroup, animationDuration));
-    }
 
     public void PlayError()
     {
@@ -116,15 +98,17 @@ public class CoinUIEarnScript : MonoBehaviour
             // GameController.Instance.AddMoneyIncrementally(coinAmount);
             //Destroy(gameObject);
             canvas.enabled = false;
+            errorTweener.RemoveAllDelegatesOnComplete();
             //tweener.RemoveDelegateOnComplete()
         });
         errorTweener.PlayTween();
-        StartCoroutine(FadeInTween(errorCanvasGroup, animationDuration));
+        fadeInCoroutine = StartCoroutine(FadeInTween(errorCanvasGroup, animationDuration));
     }
+
 
     public void PlayCoinEarnAnimation(int coinAmount)
     {
-      //  transform.SetParent(transform.parent.parent);
+        //  transform.SetParent(transform.parent.parent);
 
         coinText.text = "+" + coinAmount;
 
@@ -135,9 +119,30 @@ public class CoinUIEarnScript : MonoBehaviour
             //Destroy(gameObject);
             canvas.enabled = false;
             GameController.Instance.AddMoney(coinAmount);
+            coinTweener.RemoveAllDelegatesOnComplete();
             //tweener.RemoveDelegateOnComplete()
         });
         coinTweener.PlayTween();
-        StartCoroutine(FadeInTween(coinTextCanvasGroup, animationDuration));
+        fadeInCoroutine = StartCoroutine(FadeInTween(coinTextCanvasGroup, animationDuration));
+    }
+    [ContextMenu("PlayCoinEarnAnimation")]
+    public void PlayCoinEarnAnimation()
+    {
+        //  transform.SetParent(transform.parent.parent);
+
+        coinText.text = "+" + 20;
+
+        canvas.enabled = true;
+        coinTweener.AddDelegateOnComplete(() =>
+        {
+            // GameController.Instance.AddMoneyIncrementally(coinAmount);
+            //Destroy(gameObject);
+            canvas.enabled = false;
+            GameController.Instance.AddMoney(20);
+            coinTweener.RemoveAllDelegatesOnComplete();
+            //tweener.RemoveDelegateOnComplete()
+        });
+        coinTweener.PlayTween();
+        fadeInCoroutine = StartCoroutine(FadeInTween(coinTextCanvasGroup, animationDuration));
     }
 }
