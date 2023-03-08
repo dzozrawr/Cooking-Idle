@@ -6,7 +6,7 @@ using HoldableNameSpace;
 
 public class FryingPan : CookingTool
 {
-    public static float timeToCook=8f;
+    public static float timeToCook=3f;
 
     public ParticleSystem cookingParticles = null;
 

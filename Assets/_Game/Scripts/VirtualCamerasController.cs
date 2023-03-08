@@ -9,6 +9,8 @@ public class VirtualCamerasController : MonoBehaviour
     public CinemachineVirtualCamera cuttingBoardVCam;
     public CinemachineVirtualCamera customerVCam;
 
+    public CinemachineVirtualCamera panFryingVCam;
+
     // Update is called once per frame
     void Update()
     {
@@ -17,6 +19,7 @@ public class VirtualCamerasController : MonoBehaviour
             playerVCam.Priority = 10;
             cuttingBoardVCam.Priority = 5;
             customerVCam.Priority = 5;
+            panFryingVCam.Priority = 5;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -24,6 +27,7 @@ public class VirtualCamerasController : MonoBehaviour
             playerVCam.Priority = 5;
             cuttingBoardVCam.Priority = 10;
             customerVCam.Priority = 5;
+            panFryingVCam.Priority = 5;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -31,6 +35,15 @@ public class VirtualCamerasController : MonoBehaviour
             playerVCam.Priority = 5;
             cuttingBoardVCam.Priority = 5;
             customerVCam.Priority = 10;
+            panFryingVCam.Priority = 5;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            playerVCam.Priority = 5;
+            cuttingBoardVCam.Priority = 5;
+            customerVCam.Priority = 5;
+            panFryingVCam.Priority = 10;
         }
     }
 }

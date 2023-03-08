@@ -6,7 +6,7 @@ using HoldableNameSpace;
 
 public class CuttingBoard : CookingTool
 {
-    public static float timeToChop = 6f;
+    public static float timeToChop = 2f;
     public KnifeChopper knifeChopper=null;
 
     private PlayerController playerController = null;
