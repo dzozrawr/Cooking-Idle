@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class UnlockablesManager : MonoBehaviour
@@ -7,7 +8,14 @@ public class UnlockablesManager : MonoBehaviour
     private static UnlockablesManager instance = null;
 
 
-    public static List<bool> unlockableStates;
+    public static List<BoolWrapper> unlockableStates;
+
+    [DataContract]
+    public class BoolWrapper
+    {
+        [DataMember]
+        public bool _bool = false;
+    }
 
     public List<TriggerSpot> triggerSpotsUnlockables;
 
@@ -24,11 +32,11 @@ public class UnlockablesManager : MonoBehaviour
 
         if (unlockableStates == null)
         {
-            unlockableStates = new List<bool>(); //false means its locked
+            unlockableStates = new List<BoolWrapper>(); //false means its locked
 
             foreach (var item in triggerSpotsUnlockables)
             {
-                unlockableStates.Add(false);
+                unlockableStates.Add(new BoolWrapper());
             }
 
 
@@ -39,13 +47,13 @@ public class UnlockablesManager : MonoBehaviour
            // Debug.Log("unlockableStates.length " + unlockableStates.Count);
             for (int i = 0; i < triggerSpotsUnlockables.Count; i++)
             {
-                triggerSpotsUnlockables[i].gameObject.SetActive(!unlockableStates[i]);
+                triggerSpotsUnlockables[i].gameObject.SetActive(!unlockableStates[i]._bool);
             }
         }
     }
 
     public void SignalTriggerSpotUnlocked(TriggerSpot triggerSpot)
     {
-        unlockableStates[triggerSpotsUnlockables.IndexOf(triggerSpot)] = true;
+        unlockableStates[triggerSpotsUnlockables.IndexOf(triggerSpot)]._bool = true;
     }
 }

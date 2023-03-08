@@ -31,7 +31,7 @@ public class SaveData
     public int curOrderWaveInd;
 
     [DataMember]
-    public List<bool> unlockablesStates;    //NEED TO TEST THIS ON THE PHONE
+    public List<UnlockablesManager.BoolWrapper> unlockablesStates;    //NEED TO TEST THIS ON THE PHONE
 
     public SaveData(int _level)
     {
