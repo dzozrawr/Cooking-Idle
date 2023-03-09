@@ -63,8 +63,9 @@ public class FinishSpot : MonoBehaviour
             // c.GetComponent<CoinUIEarnScript>().PlayCoinEarnAnimation(5);
             coinUIEarnScript.PlayCoinEarnAnimation(20);
             customerManager.FirstCustomer.PlayPosOrNegParticle(true);
-            customerManager.OrderDone();
-            gameController.gameCanvas.ChangeToNextOrder();
+           // customerManager.OrderDone();
+           // gameController.gameCanvas.ChangeToNextOrder();
+           
             //gameController.GameCanvas.orderUI.SetOrderUIBasedOnOrder(gameController.orders[0]);
             //  Debug.Log("Plate matches the order!");
         }
@@ -75,7 +76,7 @@ public class FinishSpot : MonoBehaviour
             //play the error tween
           //  Debug.Log("Plate does NOT match the order!");
         }
-        Destroy(plate.gameObject);
+      //  Destroy(plate.gameObject);
         plate = null;
     }
 

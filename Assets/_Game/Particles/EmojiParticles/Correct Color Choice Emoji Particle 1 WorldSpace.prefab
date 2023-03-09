@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 436397259095401642, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
       propertyPath: m_Name
-      value: Correct Color Choice Emoji Particle 1 Variant
+      value: Correct Color Choice Emoji Particle 1 WorldSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401642, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}

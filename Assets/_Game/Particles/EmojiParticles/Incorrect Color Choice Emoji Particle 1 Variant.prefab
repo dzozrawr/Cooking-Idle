@@ -59,5 +59,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: Incorrect Color Choice Emoji Particle 1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 9.005458
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: -0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.m_Position.x
+      value: 0.0000000012272747
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: -9.443232e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.m_Position.z
+      value: 9.394904e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.m_Rotation.y
+      value: 270.84055
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.m_Rotation.z
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 436397259095401647, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99f9a22cd88bf8b49b7fcfe5484bd64c, type: 3}
